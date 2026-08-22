@@ -25,6 +25,9 @@ import {
   Calculator,
   BookOpen,
   Globe,
+  HelpCircle,
+  Radar,
+  Mic2,
   LogOut,
   Menu,
   X,
@@ -59,6 +62,9 @@ const NAV_AI = [
   { to: "/freelance-calculator", label: "Freelance rates", icon: Calculator },
   { to: "/star-story-bank", label: "STAR story bank", icon: BookOpen },
   { to: "/visa-assessor", label: "Visa assessor", icon: Globe },
+  { to: "/reverse-interview", label: "Reverse interview", icon: HelpCircle },
+  { to: "/resilience-radar", label: "Resilience radar", icon: Radar },
+  { to: "/speaker-pitch", label: "Speaker pitch", icon: Mic2 },
 ] as const;
 
 const NAV_DATA = [

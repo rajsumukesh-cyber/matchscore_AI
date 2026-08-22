@@ -22,6 +22,9 @@ import {
   Calculator,
   BookOpen,
   Globe,
+  HelpCircle,
+  Radar,
+  Mic2,
   ArrowRight,
   TrendingUp,
   Users,
@@ -216,6 +219,30 @@ const AI_TOOLS = [
     color: "text-emerald-500",
     bg: "bg-emerald-500/10",
   },
+  {
+    to: "/reverse-interview",
+    icon: HelpCircle,
+    title: "Reverse Interview",
+    description: "Ask managers, peers & CTOs high-conviction due diligence questions.",
+    color: "text-purple-500",
+    bg: "bg-purple-500/10",
+  },
+  {
+    to: "/resilience-radar",
+    icon: Radar,
+    title: "Resilience Radar",
+    description: "Measure AI automation defensibility and 4-pillar career antifragility.",
+    color: "text-emerald-500",
+    bg: "bg-emerald-500/10",
+  },
+  {
+    to: "/speaker-pitch",
+    icon: Mic2,
+    title: "Speaker Pitch & Bio",
+    description: "Generate 3-length executive bios and conference keynote CFP proposals.",
+    color: "text-indigo-500",
+    bg: "bg-indigo-500/10",
+  },
 ];
 
 function DashboardPage() {
@@ -284,7 +311,7 @@ function DashboardPage() {
         <div className="flex items-center gap-2">
           <h2 className="text-base font-semibold text-foreground">AI Career Intelligence Tools</h2>
           <Badge variant="outline" className="text-[10px] border-primary/20 text-primary bg-primary/5">
-            18 modules
+            21 modules
           </Badge>
         </div>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">

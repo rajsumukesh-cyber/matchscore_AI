@@ -23,6 +23,9 @@ import {
   Calculator,
   BookOpen,
   Globe,
+  HelpCircle,
+  Radar,
+  Mic2,
   ArrowRight,
   CheckCircle2,
   Star,
@@ -42,13 +45,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Score any resume against any job description with explainable AI. 18-in-1 career intelligence suite with mock interviews, ATS builder, salary predictor, freelance rate calculator, STAR story bank, visa assessor, and head-to-head comparator.",
+          "Score any resume against any job description with explainable AI. 21-in-1 career intelligence suite with mock interviews, ATS builder, salary predictor, reverse interviews, resilience radar, and head-to-head comparator.",
       },
       { property: "og:title", content: "MatchScore AI Resume to Role Match Scorer" },
       {
         property: "og:description",
         content:
-          "Explainable resume-to-role matching with 18 AI-powered career intelligence tools.",
+          "Explainable resume-to-role matching with 21 AI-powered career intelligence tools.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -148,10 +151,25 @@ const FEATURES = [
     title: "AI Global Visa & Relocation Assessor",
     body: "Evaluate qualifications for UK Global Talent, EU Blue Card, Canada GTS, and US tech visas with custom evidence roadmaps.",
   },
+  {
+    icon: HelpCircle,
+    title: "AI Reverse Interview & Due Diligence",
+    body: "Generate high-conviction questions for managers, peers, and CTOs to spot company red flags before accepting an offer.",
+  },
+  {
+    icon: Radar,
+    title: "AI Layoff Risk & Career Resilience Radar",
+    body: "Assess your career defensibility against AI automation and tech stack obsolescence with a 4-pillar antifragile blueprint.",
+  },
+  {
+    icon: Mic2,
+    title: "AI Executive Bio & Keynote Speaker Pitch",
+    body: "Generate executive bios in 3 lengths and conference keynote CFP proposals to build public authority.",
+  },
 ];
 
 const STATS = [
-  { value: "18", label: "AI Modules", suffix: "" },
+  { value: "21", label: "AI Modules", suffix: "" },
   { value: "50", label: "Scoring Dimensions", suffix: "+" },
   { value: "10K", label: "Resumes Analysed", suffix: "+" },
   { value: "97", label: "ATS Pass Rate", suffix: "%" },
@@ -196,7 +214,7 @@ function Landing() {
             <div className="animate-fade-in-up">
               <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/8 px-4 py-1.5 text-xs font-semibold text-primary shadow-sm">
                 <Sparkles className="size-3.5" />
-                18-in-1 AI Career Intelligence Suite
+                21-in-1 AI Career Intelligence Suite
               </span>
             </div>
 

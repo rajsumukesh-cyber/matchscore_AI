@@ -28,8 +28,11 @@ import { Route as AuthenticatedOfferEvaluatorRouteImport } from './routes/_authe
 import { Route as AuthenticatedOnboardingPlanRouteImport } from './routes/_authenticated/onboarding-plan'
 import { Route as AuthenticatedPromotionCaseRouteImport } from './routes/_authenticated/promotion-case'
 import { Route as AuthenticatedRecommendationsRouteImport } from './routes/_authenticated/recommendations'
+import { Route as AuthenticatedResilienceRadarRouteImport } from './routes/_authenticated/resilience-radar'
 import { Route as AuthenticatedResumesRouteImport } from './routes/_authenticated/resumes'
+import { Route as AuthenticatedReverseInterviewRouteImport } from './routes/_authenticated/reverse-interview'
 import { Route as AuthenticatedSalaryRouteImport } from './routes/_authenticated/salary'
+import { Route as AuthenticatedSpeakerPitchRouteImport } from './routes/_authenticated/speaker-pitch'
 import { Route as AuthenticatedStarStoryBankRouteImport } from './routes/_authenticated/star-story-bank'
 import { Route as AuthenticatedStudioRouteImport } from './routes/_authenticated/studio'
 import { Route as AuthenticatedTechMatrixRouteImport } from './routes/_authenticated/tech-matrix'
@@ -145,16 +148,34 @@ const AuthenticatedRecommendationsRoute =
     path: '/recommendations',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedResilienceRadarRoute =
+  AuthenticatedResilienceRadarRouteImport.update({
+    id: '/resilience-radar',
+    path: '/resilience-radar',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedResumesRoute = AuthenticatedResumesRouteImport.update({
   id: '/resumes',
   path: '/resumes',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedReverseInterviewRoute =
+  AuthenticatedReverseInterviewRouteImport.update({
+    id: '/reverse-interview',
+    path: '/reverse-interview',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedSalaryRoute = AuthenticatedSalaryRouteImport.update({
   id: '/salary',
   path: '/salary',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedSpeakerPitchRoute =
+  AuthenticatedSpeakerPitchRouteImport.update({
+    id: '/speaker-pitch',
+    path: '/speaker-pitch',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedStarStoryBankRoute =
   AuthenticatedStarStoryBankRouteImport.update({
     id: '/star-story-bank',
@@ -235,8 +256,11 @@ export interface FileRoutesByFullPath {
   '/onboarding-plan': typeof AuthenticatedOnboardingPlanRoute
   '/promotion-case': typeof AuthenticatedPromotionCaseRoute
   '/recommendations': typeof AuthenticatedRecommendationsRoute
+  '/resilience-radar': typeof AuthenticatedResilienceRadarRoute
   '/resumes': typeof AuthenticatedResumesRoute
+  '/reverse-interview': typeof AuthenticatedReverseInterviewRoute
   '/salary': typeof AuthenticatedSalaryRoute
+  '/speaker-pitch': typeof AuthenticatedSpeakerPitchRoute
   '/star-story-bank': typeof AuthenticatedStarStoryBankRoute
   '/studio': typeof AuthenticatedStudioRoute
   '/tech-matrix': typeof AuthenticatedTechMatrixRoute
@@ -268,8 +292,11 @@ export interface FileRoutesByTo {
   '/onboarding-plan': typeof AuthenticatedOnboardingPlanRoute
   '/promotion-case': typeof AuthenticatedPromotionCaseRoute
   '/recommendations': typeof AuthenticatedRecommendationsRoute
+  '/resilience-radar': typeof AuthenticatedResilienceRadarRoute
   '/resumes': typeof AuthenticatedResumesRoute
+  '/reverse-interview': typeof AuthenticatedReverseInterviewRoute
   '/salary': typeof AuthenticatedSalaryRoute
+  '/speaker-pitch': typeof AuthenticatedSpeakerPitchRoute
   '/star-story-bank': typeof AuthenticatedStarStoryBankRoute
   '/studio': typeof AuthenticatedStudioRoute
   '/tech-matrix': typeof AuthenticatedTechMatrixRoute
@@ -303,8 +330,11 @@ export interface FileRoutesById {
   '/_authenticated/onboarding-plan': typeof AuthenticatedOnboardingPlanRoute
   '/_authenticated/promotion-case': typeof AuthenticatedPromotionCaseRoute
   '/_authenticated/recommendations': typeof AuthenticatedRecommendationsRoute
+  '/_authenticated/resilience-radar': typeof AuthenticatedResilienceRadarRoute
   '/_authenticated/resumes': typeof AuthenticatedResumesRoute
+  '/_authenticated/reverse-interview': typeof AuthenticatedReverseInterviewRoute
   '/_authenticated/salary': typeof AuthenticatedSalaryRoute
+  '/_authenticated/speaker-pitch': typeof AuthenticatedSpeakerPitchRoute
   '/_authenticated/star-story-bank': typeof AuthenticatedStarStoryBankRoute
   '/_authenticated/studio': typeof AuthenticatedStudioRoute
   '/_authenticated/tech-matrix': typeof AuthenticatedTechMatrixRoute
@@ -338,8 +368,11 @@ export interface FileRouteTypes {
     | '/onboarding-plan'
     | '/promotion-case'
     | '/recommendations'
+    | '/resilience-radar'
     | '/resumes'
+    | '/reverse-interview'
     | '/salary'
+    | '/speaker-pitch'
     | '/star-story-bank'
     | '/studio'
     | '/tech-matrix'
@@ -371,8 +404,11 @@ export interface FileRouteTypes {
     | '/onboarding-plan'
     | '/promotion-case'
     | '/recommendations'
+    | '/resilience-radar'
     | '/resumes'
+    | '/reverse-interview'
     | '/salary'
+    | '/speaker-pitch'
     | '/star-story-bank'
     | '/studio'
     | '/tech-matrix'
@@ -405,8 +441,11 @@ export interface FileRouteTypes {
     | '/_authenticated/onboarding-plan'
     | '/_authenticated/promotion-case'
     | '/_authenticated/recommendations'
+    | '/_authenticated/resilience-radar'
     | '/_authenticated/resumes'
+    | '/_authenticated/reverse-interview'
     | '/_authenticated/salary'
+    | '/_authenticated/speaker-pitch'
     | '/_authenticated/star-story-bank'
     | '/_authenticated/studio'
     | '/_authenticated/tech-matrix'
@@ -562,6 +601,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedRecommendationsRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/resilience-radar': {
+      id: '/_authenticated/resilience-radar'
+      path: '/resilience-radar'
+      fullPath: '/resilience-radar'
+      preLoaderRoute: typeof AuthenticatedResilienceRadarRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/resumes': {
       id: '/_authenticated/resumes'
       path: '/resumes'
@@ -569,11 +615,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedResumesRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/reverse-interview': {
+      id: '/_authenticated/reverse-interview'
+      path: '/reverse-interview'
+      fullPath: '/reverse-interview'
+      preLoaderRoute: typeof AuthenticatedReverseInterviewRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/salary': {
       id: '/_authenticated/salary'
       path: '/salary'
       fullPath: '/salary'
       preLoaderRoute: typeof AuthenticatedSalaryRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/speaker-pitch': {
+      id: '/_authenticated/speaker-pitch'
+      path: '/speaker-pitch'
+      fullPath: '/speaker-pitch'
+      preLoaderRoute: typeof AuthenticatedSpeakerPitchRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/star-story-bank': {
@@ -673,8 +733,11 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedOnboardingPlanRoute: typeof AuthenticatedOnboardingPlanRoute
   AuthenticatedPromotionCaseRoute: typeof AuthenticatedPromotionCaseRoute
   AuthenticatedRecommendationsRoute: typeof AuthenticatedRecommendationsRoute
+  AuthenticatedResilienceRadarRoute: typeof AuthenticatedResilienceRadarRoute
   AuthenticatedResumesRoute: typeof AuthenticatedResumesRoute
+  AuthenticatedReverseInterviewRoute: typeof AuthenticatedReverseInterviewRoute
   AuthenticatedSalaryRoute: typeof AuthenticatedSalaryRoute
+  AuthenticatedSpeakerPitchRoute: typeof AuthenticatedSpeakerPitchRoute
   AuthenticatedStarStoryBankRoute: typeof AuthenticatedStarStoryBankRoute
   AuthenticatedStudioRoute: typeof AuthenticatedStudioRoute
   AuthenticatedTechMatrixRoute: typeof AuthenticatedTechMatrixRoute
@@ -704,8 +767,11 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedOnboardingPlanRoute: AuthenticatedOnboardingPlanRoute,
   AuthenticatedPromotionCaseRoute: AuthenticatedPromotionCaseRoute,
   AuthenticatedRecommendationsRoute: AuthenticatedRecommendationsRoute,
+  AuthenticatedResilienceRadarRoute: AuthenticatedResilienceRadarRoute,
   AuthenticatedResumesRoute: AuthenticatedResumesRoute,
+  AuthenticatedReverseInterviewRoute: AuthenticatedReverseInterviewRoute,
   AuthenticatedSalaryRoute: AuthenticatedSalaryRoute,
+  AuthenticatedSpeakerPitchRoute: AuthenticatedSpeakerPitchRoute,
   AuthenticatedStarStoryBankRoute: AuthenticatedStarStoryBankRoute,
   AuthenticatedStudioRoute: AuthenticatedStudioRoute,
   AuthenticatedTechMatrixRoute: AuthenticatedTechMatrixRoute,
