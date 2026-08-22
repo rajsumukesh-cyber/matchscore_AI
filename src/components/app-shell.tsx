@@ -22,6 +22,9 @@ import {
   Cpu,
   Award,
   TrendingUp,
+  Calculator,
+  BookOpen,
+  Globe,
   LogOut,
   Menu,
   X,
@@ -53,6 +56,9 @@ const NAV_AI = [
   { to: "/tech-matrix", label: "Tech stack matrix", icon: Cpu },
   { to: "/recommendations", label: "Recommendations", icon: Award },
   { to: "/promotion-case", label: "Promotion builder", icon: TrendingUp },
+  { to: "/freelance-calculator", label: "Freelance rates", icon: Calculator },
+  { to: "/star-story-bank", label: "STAR story bank", icon: BookOpen },
+  { to: "/visa-assessor", label: "Visa assessor", icon: Globe },
 ] as const;
 
 const NAV_DATA = [

@@ -19,6 +19,9 @@ import {
   Coins,
   Cpu,
   Award,
+  Calculator,
+  BookOpen,
+  Globe,
   ArrowRight,
   TrendingUp,
   Users,
@@ -189,6 +192,30 @@ const AI_TOOLS = [
     color: "text-emerald-500",
     bg: "bg-emerald-500/10",
   },
+  {
+    to: "/freelance-calculator",
+    icon: Calculator,
+    title: "Freelance Rates",
+    description: "Convert FTE salary to hourly, day & monthly retainer consulting rates.",
+    color: "text-amber-500",
+    bg: "bg-amber-500/10",
+  },
+  {
+    to: "/star-story-bank",
+    icon: BookOpen,
+    title: "STAR Story Bank",
+    description: "Structure interview stories across 4 core behavioral leadership themes.",
+    color: "text-blue-500",
+    bg: "bg-blue-500/10",
+  },
+  {
+    to: "/visa-assessor",
+    icon: Globe,
+    title: "Visa Assessor",
+    description: "Evaluate eligibility for UK, EU, Canada & US tech visas with evidence roadmaps.",
+    color: "text-emerald-500",
+    bg: "bg-emerald-500/10",
+  },
 ];
 
 function DashboardPage() {
@@ -257,7 +284,7 @@ function DashboardPage() {
         <div className="flex items-center gap-2">
           <h2 className="text-base font-semibold text-foreground">AI Career Intelligence Tools</h2>
           <Badge variant="outline" className="text-[10px] border-primary/20 text-primary bg-primary/5">
-            15 modules
+            18 modules
           </Badge>
         </div>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">

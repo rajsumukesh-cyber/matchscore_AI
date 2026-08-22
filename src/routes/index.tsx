@@ -20,6 +20,9 @@ import {
   Cpu,
   Award,
   TrendingUp,
+  Calculator,
+  BookOpen,
+  Globe,
   ArrowRight,
   CheckCircle2,
   Star,
@@ -39,13 +42,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Score any resume against any job description with explainable AI. 15-in-1 career intelligence suite with mock interviews, ATS builder, salary predictor, career timeline, cover letter generator, tech stack matrix, and head-to-head comparator.",
+          "Score any resume against any job description with explainable AI. 18-in-1 career intelligence suite with mock interviews, ATS builder, salary predictor, freelance rate calculator, STAR story bank, visa assessor, and head-to-head comparator.",
       },
       { property: "og:title", content: "MatchScore AI Resume to Role Match Scorer" },
       {
         property: "og:description",
         content:
-          "Explainable resume-to-role matching with 15 AI-powered career intelligence tools.",
+          "Explainable resume-to-role matching with 18 AI-powered career intelligence tools.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -130,10 +133,25 @@ const FEATURES = [
     title: "AI Promotion & Review Case Builder",
     body: "Format your shipped projects, OKRs, and leadership impact into an executive-ready promotion dossier and 1-on-1 manager script.",
   },
+  {
+    icon: Calculator,
+    title: "AI Freelance & Consulting Rate Calculator",
+    body: "Convert full-time salary into calibrated consulting rates (hourly, day, monthly retainer) and generate client proposals.",
+  },
+  {
+    icon: BookOpen,
+    title: "AI Behavioral & Leadership STAR Story Bank",
+    body: "Structure and polish an interview repository of STAR stories with verified metrics across major leadership principles.",
+  },
+  {
+    icon: Globe,
+    title: "AI Global Visa & Relocation Assessor",
+    body: "Evaluate qualifications for UK Global Talent, EU Blue Card, Canada GTS, and US tech visas with custom evidence roadmaps.",
+  },
 ];
 
 const STATS = [
-  { value: "15", label: "AI Modules", suffix: "" },
+  { value: "18", label: "AI Modules", suffix: "" },
   { value: "50", label: "Scoring Dimensions", suffix: "+" },
   { value: "10K", label: "Resumes Analysed", suffix: "+" },
   { value: "97", label: "ATS Pass Rate", suffix: "%" },
@@ -178,7 +196,7 @@ function Landing() {
             <div className="animate-fade-in-up">
               <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/8 px-4 py-1.5 text-xs font-semibold text-primary shadow-sm">
                 <Sparkles className="size-3.5" />
-                15-in-1 AI Career Intelligence Suite
+                18-in-1 AI Career Intelligence Suite
               </span>
             </div>
 

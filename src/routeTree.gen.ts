@@ -20,6 +20,7 @@ import { Route as AuthenticatedCareerTimelineRouteImport } from './routes/_authe
 import { Route as AuthenticatedCompareRouteImport } from './routes/_authenticated/compare'
 import { Route as AuthenticatedCoverLetterRouteImport } from './routes/_authenticated/cover-letter'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as AuthenticatedFreelanceCalculatorRouteImport } from './routes/_authenticated/freelance-calculator'
 import { Route as AuthenticatedInterviewRouteImport } from './routes/_authenticated/interview'
 import { Route as AuthenticatedJobsRouteImport } from './routes/_authenticated/jobs'
 import { Route as AuthenticatedLinkedinOptimizerRouteImport } from './routes/_authenticated/linkedin-optimizer'
@@ -29,8 +30,10 @@ import { Route as AuthenticatedPromotionCaseRouteImport } from './routes/_authen
 import { Route as AuthenticatedRecommendationsRouteImport } from './routes/_authenticated/recommendations'
 import { Route as AuthenticatedResumesRouteImport } from './routes/_authenticated/resumes'
 import { Route as AuthenticatedSalaryRouteImport } from './routes/_authenticated/salary'
+import { Route as AuthenticatedStarStoryBankRouteImport } from './routes/_authenticated/star-story-bank'
 import { Route as AuthenticatedStudioRouteImport } from './routes/_authenticated/studio'
 import { Route as AuthenticatedTechMatrixRouteImport } from './routes/_authenticated/tech-matrix'
+import { Route as AuthenticatedVisaAssessorRouteImport } from './routes/_authenticated/visa-assessor'
 import { Route as AuthenticatedCoachIndexRouteImport } from './routes/_authenticated/coach/index'
 import { Route as AuthenticatedCoachIdRouteImport } from './routes/_authenticated/coach/$id'
 import { Route as AuthenticatedReportsIndexRouteImport } from './routes/_authenticated/reports/index'
@@ -96,6 +99,12 @@ const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedFreelanceCalculatorRoute =
+  AuthenticatedFreelanceCalculatorRouteImport.update({
+    id: '/freelance-calculator',
+    path: '/freelance-calculator',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedInterviewRoute = AuthenticatedInterviewRouteImport.update({
   id: '/interview',
   path: '/interview',
@@ -146,6 +155,12 @@ const AuthenticatedSalaryRoute = AuthenticatedSalaryRouteImport.update({
   path: '/salary',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedStarStoryBankRoute =
+  AuthenticatedStarStoryBankRouteImport.update({
+    id: '/star-story-bank',
+    path: '/star-story-bank',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedStudioRoute = AuthenticatedStudioRouteImport.update({
   id: '/studio',
   path: '/studio',
@@ -156,6 +171,12 @@ const AuthenticatedTechMatrixRoute = AuthenticatedTechMatrixRouteImport.update({
   path: '/tech-matrix',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedVisaAssessorRoute =
+  AuthenticatedVisaAssessorRouteImport.update({
+    id: '/visa-assessor',
+    path: '/visa-assessor',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedCoachIndexRoute = AuthenticatedCoachIndexRouteImport.update({
   id: '/coach/',
   path: '/coach/',
@@ -206,6 +227,7 @@ export interface FileRoutesByFullPath {
   '/compare': typeof AuthenticatedCompareRoute
   '/cover-letter': typeof AuthenticatedCoverLetterRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/freelance-calculator': typeof AuthenticatedFreelanceCalculatorRoute
   '/interview': typeof AuthenticatedInterviewRoute
   '/jobs': typeof AuthenticatedJobsRoute
   '/linkedin-optimizer': typeof AuthenticatedLinkedinOptimizerRoute
@@ -215,8 +237,10 @@ export interface FileRoutesByFullPath {
   '/recommendations': typeof AuthenticatedRecommendationsRoute
   '/resumes': typeof AuthenticatedResumesRoute
   '/salary': typeof AuthenticatedSalaryRoute
+  '/star-story-bank': typeof AuthenticatedStarStoryBankRoute
   '/studio': typeof AuthenticatedStudioRoute
   '/tech-matrix': typeof AuthenticatedTechMatrixRoute
+  '/visa-assessor': typeof AuthenticatedVisaAssessorRoute
   '/coach/$id': typeof AuthenticatedCoachIdRoute
   '/reports/$id': typeof AuthenticatedReportsIdRoute
   '/screening/$id': typeof AuthenticatedScreeningIdRoute
@@ -236,6 +260,7 @@ export interface FileRoutesByTo {
   '/compare': typeof AuthenticatedCompareRoute
   '/cover-letter': typeof AuthenticatedCoverLetterRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/freelance-calculator': typeof AuthenticatedFreelanceCalculatorRoute
   '/interview': typeof AuthenticatedInterviewRoute
   '/jobs': typeof AuthenticatedJobsRoute
   '/linkedin-optimizer': typeof AuthenticatedLinkedinOptimizerRoute
@@ -245,8 +270,10 @@ export interface FileRoutesByTo {
   '/recommendations': typeof AuthenticatedRecommendationsRoute
   '/resumes': typeof AuthenticatedResumesRoute
   '/salary': typeof AuthenticatedSalaryRoute
+  '/star-story-bank': typeof AuthenticatedStarStoryBankRoute
   '/studio': typeof AuthenticatedStudioRoute
   '/tech-matrix': typeof AuthenticatedTechMatrixRoute
+  '/visa-assessor': typeof AuthenticatedVisaAssessorRoute
   '/coach/$id': typeof AuthenticatedCoachIdRoute
   '/reports/$id': typeof AuthenticatedReportsIdRoute
   '/screening/$id': typeof AuthenticatedScreeningIdRoute
@@ -268,6 +295,7 @@ export interface FileRoutesById {
   '/_authenticated/compare': typeof AuthenticatedCompareRoute
   '/_authenticated/cover-letter': typeof AuthenticatedCoverLetterRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
+  '/_authenticated/freelance-calculator': typeof AuthenticatedFreelanceCalculatorRoute
   '/_authenticated/interview': typeof AuthenticatedInterviewRoute
   '/_authenticated/jobs': typeof AuthenticatedJobsRoute
   '/_authenticated/linkedin-optimizer': typeof AuthenticatedLinkedinOptimizerRoute
@@ -277,8 +305,10 @@ export interface FileRoutesById {
   '/_authenticated/recommendations': typeof AuthenticatedRecommendationsRoute
   '/_authenticated/resumes': typeof AuthenticatedResumesRoute
   '/_authenticated/salary': typeof AuthenticatedSalaryRoute
+  '/_authenticated/star-story-bank': typeof AuthenticatedStarStoryBankRoute
   '/_authenticated/studio': typeof AuthenticatedStudioRoute
   '/_authenticated/tech-matrix': typeof AuthenticatedTechMatrixRoute
+  '/_authenticated/visa-assessor': typeof AuthenticatedVisaAssessorRoute
   '/_authenticated/coach/$id': typeof AuthenticatedCoachIdRoute
   '/_authenticated/reports/$id': typeof AuthenticatedReportsIdRoute
   '/_authenticated/screening/$id': typeof AuthenticatedScreeningIdRoute
@@ -300,6 +330,7 @@ export interface FileRouteTypes {
     | '/compare'
     | '/cover-letter'
     | '/dashboard'
+    | '/freelance-calculator'
     | '/interview'
     | '/jobs'
     | '/linkedin-optimizer'
@@ -309,8 +340,10 @@ export interface FileRouteTypes {
     | '/recommendations'
     | '/resumes'
     | '/salary'
+    | '/star-story-bank'
     | '/studio'
     | '/tech-matrix'
+    | '/visa-assessor'
     | '/coach/$id'
     | '/reports/$id'
     | '/screening/$id'
@@ -330,6 +363,7 @@ export interface FileRouteTypes {
     | '/compare'
     | '/cover-letter'
     | '/dashboard'
+    | '/freelance-calculator'
     | '/interview'
     | '/jobs'
     | '/linkedin-optimizer'
@@ -339,8 +373,10 @@ export interface FileRouteTypes {
     | '/recommendations'
     | '/resumes'
     | '/salary'
+    | '/star-story-bank'
     | '/studio'
     | '/tech-matrix'
+    | '/visa-assessor'
     | '/coach/$id'
     | '/reports/$id'
     | '/screening/$id'
@@ -361,6 +397,7 @@ export interface FileRouteTypes {
     | '/_authenticated/compare'
     | '/_authenticated/cover-letter'
     | '/_authenticated/dashboard'
+    | '/_authenticated/freelance-calculator'
     | '/_authenticated/interview'
     | '/_authenticated/jobs'
     | '/_authenticated/linkedin-optimizer'
@@ -370,8 +407,10 @@ export interface FileRouteTypes {
     | '/_authenticated/recommendations'
     | '/_authenticated/resumes'
     | '/_authenticated/salary'
+    | '/_authenticated/star-story-bank'
     | '/_authenticated/studio'
     | '/_authenticated/tech-matrix'
+    | '/_authenticated/visa-assessor'
     | '/_authenticated/coach/$id'
     | '/_authenticated/reports/$id'
     | '/_authenticated/screening/$id'
@@ -467,6 +506,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedDashboardRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/freelance-calculator': {
+      id: '/_authenticated/freelance-calculator'
+      path: '/freelance-calculator'
+      fullPath: '/freelance-calculator'
+      preLoaderRoute: typeof AuthenticatedFreelanceCalculatorRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/interview': {
       id: '/_authenticated/interview'
       path: '/interview'
@@ -530,6 +576,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedSalaryRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/star-story-bank': {
+      id: '/_authenticated/star-story-bank'
+      path: '/star-story-bank'
+      fullPath: '/star-story-bank'
+      preLoaderRoute: typeof AuthenticatedStarStoryBankRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/studio': {
       id: '/_authenticated/studio'
       path: '/studio'
@@ -542,6 +595,13 @@ declare module '@tanstack/react-router' {
       path: '/tech-matrix'
       fullPath: '/tech-matrix'
       preLoaderRoute: typeof AuthenticatedTechMatrixRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/visa-assessor': {
+      id: '/_authenticated/visa-assessor'
+      path: '/visa-assessor'
+      fullPath: '/visa-assessor'
+      preLoaderRoute: typeof AuthenticatedVisaAssessorRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/coach/': {
@@ -605,6 +665,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedCompareRoute: typeof AuthenticatedCompareRoute
   AuthenticatedCoverLetterRoute: typeof AuthenticatedCoverLetterRoute
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
+  AuthenticatedFreelanceCalculatorRoute: typeof AuthenticatedFreelanceCalculatorRoute
   AuthenticatedInterviewRoute: typeof AuthenticatedInterviewRoute
   AuthenticatedJobsRoute: typeof AuthenticatedJobsRoute
   AuthenticatedLinkedinOptimizerRoute: typeof AuthenticatedLinkedinOptimizerRoute
@@ -614,8 +675,10 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedRecommendationsRoute: typeof AuthenticatedRecommendationsRoute
   AuthenticatedResumesRoute: typeof AuthenticatedResumesRoute
   AuthenticatedSalaryRoute: typeof AuthenticatedSalaryRoute
+  AuthenticatedStarStoryBankRoute: typeof AuthenticatedStarStoryBankRoute
   AuthenticatedStudioRoute: typeof AuthenticatedStudioRoute
   AuthenticatedTechMatrixRoute: typeof AuthenticatedTechMatrixRoute
+  AuthenticatedVisaAssessorRoute: typeof AuthenticatedVisaAssessorRoute
   AuthenticatedCoachIdRoute: typeof AuthenticatedCoachIdRoute
   AuthenticatedReportsIdRoute: typeof AuthenticatedReportsIdRoute
   AuthenticatedScreeningIdRoute: typeof AuthenticatedScreeningIdRoute
@@ -633,6 +696,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedCompareRoute: AuthenticatedCompareRoute,
   AuthenticatedCoverLetterRoute: AuthenticatedCoverLetterRoute,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
+  AuthenticatedFreelanceCalculatorRoute: AuthenticatedFreelanceCalculatorRoute,
   AuthenticatedInterviewRoute: AuthenticatedInterviewRoute,
   AuthenticatedJobsRoute: AuthenticatedJobsRoute,
   AuthenticatedLinkedinOptimizerRoute: AuthenticatedLinkedinOptimizerRoute,
@@ -642,8 +706,10 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedRecommendationsRoute: AuthenticatedRecommendationsRoute,
   AuthenticatedResumesRoute: AuthenticatedResumesRoute,
   AuthenticatedSalaryRoute: AuthenticatedSalaryRoute,
+  AuthenticatedStarStoryBankRoute: AuthenticatedStarStoryBankRoute,
   AuthenticatedStudioRoute: AuthenticatedStudioRoute,
   AuthenticatedTechMatrixRoute: AuthenticatedTechMatrixRoute,
+  AuthenticatedVisaAssessorRoute: AuthenticatedVisaAssessorRoute,
   AuthenticatedCoachIdRoute: AuthenticatedCoachIdRoute,
   AuthenticatedReportsIdRoute: AuthenticatedReportsIdRoute,
   AuthenticatedScreeningIdRoute: AuthenticatedScreeningIdRoute,
