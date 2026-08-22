@@ -39,13 +39,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Score any resume against any job description with explainable AI. 9-in-1 career intelligence suite with mock interviews, ATS builder, salary predictor, career timeline, cover letter generator, and head-to-head comparator.",
+          "Score any resume against any job description with explainable AI. 15-in-1 career intelligence suite with mock interviews, ATS builder, salary predictor, career timeline, cover letter generator, tech stack matrix, and head-to-head comparator.",
       },
       { property: "og:title", content: "MatchScore AI Resume to Role Match Scorer" },
       {
         property: "og:description",
         content:
-          "Explainable resume-to-role matching with 9 AI-powered career intelligence tools.",
+          "Explainable resume-to-role matching with 15 AI-powered career intelligence tools.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
