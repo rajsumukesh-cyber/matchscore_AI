@@ -19,6 +19,9 @@ import {
   Linkedin,
   CalendarDays,
   Coins,
+  Cpu,
+  Award,
+  TrendingUp,
   LogOut,
   Menu,
   X,
@@ -47,6 +50,9 @@ const NAV_AI = [
   { to: "/linkedin-optimizer", label: "LinkedIn studio", icon: Linkedin },
   { to: "/onboarding-plan", label: "30-60-90 plan", icon: CalendarDays },
   { to: "/offer-evaluator", label: "Offer evaluator", icon: Coins },
+  { to: "/tech-matrix", label: "Tech stack matrix", icon: Cpu },
+  { to: "/recommendations", label: "Recommendations", icon: Award },
+  { to: "/promotion-case", label: "Promotion builder", icon: TrendingUp },
 ] as const;
 
 const NAV_DATA = [

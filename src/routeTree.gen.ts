@@ -25,9 +25,12 @@ import { Route as AuthenticatedJobsRouteImport } from './routes/_authenticated/j
 import { Route as AuthenticatedLinkedinOptimizerRouteImport } from './routes/_authenticated/linkedin-optimizer'
 import { Route as AuthenticatedOfferEvaluatorRouteImport } from './routes/_authenticated/offer-evaluator'
 import { Route as AuthenticatedOnboardingPlanRouteImport } from './routes/_authenticated/onboarding-plan'
+import { Route as AuthenticatedPromotionCaseRouteImport } from './routes/_authenticated/promotion-case'
+import { Route as AuthenticatedRecommendationsRouteImport } from './routes/_authenticated/recommendations'
 import { Route as AuthenticatedResumesRouteImport } from './routes/_authenticated/resumes'
 import { Route as AuthenticatedSalaryRouteImport } from './routes/_authenticated/salary'
 import { Route as AuthenticatedStudioRouteImport } from './routes/_authenticated/studio'
+import { Route as AuthenticatedTechMatrixRouteImport } from './routes/_authenticated/tech-matrix'
 import { Route as AuthenticatedCoachIndexRouteImport } from './routes/_authenticated/coach/index'
 import { Route as AuthenticatedCoachIdRouteImport } from './routes/_authenticated/coach/$id'
 import { Route as AuthenticatedReportsIndexRouteImport } from './routes/_authenticated/reports/index'
@@ -121,6 +124,18 @@ const AuthenticatedOnboardingPlanRoute =
     path: '/onboarding-plan',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedPromotionCaseRoute =
+  AuthenticatedPromotionCaseRouteImport.update({
+    id: '/promotion-case',
+    path: '/promotion-case',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedRecommendationsRoute =
+  AuthenticatedRecommendationsRouteImport.update({
+    id: '/recommendations',
+    path: '/recommendations',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedResumesRoute = AuthenticatedResumesRouteImport.update({
   id: '/resumes',
   path: '/resumes',
@@ -134,6 +149,11 @@ const AuthenticatedSalaryRoute = AuthenticatedSalaryRouteImport.update({
 const AuthenticatedStudioRoute = AuthenticatedStudioRouteImport.update({
   id: '/studio',
   path: '/studio',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedTechMatrixRoute = AuthenticatedTechMatrixRouteImport.update({
+  id: '/tech-matrix',
+  path: '/tech-matrix',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const AuthenticatedCoachIndexRoute = AuthenticatedCoachIndexRouteImport.update({
@@ -191,9 +211,12 @@ export interface FileRoutesByFullPath {
   '/linkedin-optimizer': typeof AuthenticatedLinkedinOptimizerRoute
   '/offer-evaluator': typeof AuthenticatedOfferEvaluatorRoute
   '/onboarding-plan': typeof AuthenticatedOnboardingPlanRoute
+  '/promotion-case': typeof AuthenticatedPromotionCaseRoute
+  '/recommendations': typeof AuthenticatedRecommendationsRoute
   '/resumes': typeof AuthenticatedResumesRoute
   '/salary': typeof AuthenticatedSalaryRoute
   '/studio': typeof AuthenticatedStudioRoute
+  '/tech-matrix': typeof AuthenticatedTechMatrixRoute
   '/coach/$id': typeof AuthenticatedCoachIdRoute
   '/reports/$id': typeof AuthenticatedReportsIdRoute
   '/screening/$id': typeof AuthenticatedScreeningIdRoute
@@ -218,9 +241,12 @@ export interface FileRoutesByTo {
   '/linkedin-optimizer': typeof AuthenticatedLinkedinOptimizerRoute
   '/offer-evaluator': typeof AuthenticatedOfferEvaluatorRoute
   '/onboarding-plan': typeof AuthenticatedOnboardingPlanRoute
+  '/promotion-case': typeof AuthenticatedPromotionCaseRoute
+  '/recommendations': typeof AuthenticatedRecommendationsRoute
   '/resumes': typeof AuthenticatedResumesRoute
   '/salary': typeof AuthenticatedSalaryRoute
   '/studio': typeof AuthenticatedStudioRoute
+  '/tech-matrix': typeof AuthenticatedTechMatrixRoute
   '/coach/$id': typeof AuthenticatedCoachIdRoute
   '/reports/$id': typeof AuthenticatedReportsIdRoute
   '/screening/$id': typeof AuthenticatedScreeningIdRoute
@@ -247,9 +273,12 @@ export interface FileRoutesById {
   '/_authenticated/linkedin-optimizer': typeof AuthenticatedLinkedinOptimizerRoute
   '/_authenticated/offer-evaluator': typeof AuthenticatedOfferEvaluatorRoute
   '/_authenticated/onboarding-plan': typeof AuthenticatedOnboardingPlanRoute
+  '/_authenticated/promotion-case': typeof AuthenticatedPromotionCaseRoute
+  '/_authenticated/recommendations': typeof AuthenticatedRecommendationsRoute
   '/_authenticated/resumes': typeof AuthenticatedResumesRoute
   '/_authenticated/salary': typeof AuthenticatedSalaryRoute
   '/_authenticated/studio': typeof AuthenticatedStudioRoute
+  '/_authenticated/tech-matrix': typeof AuthenticatedTechMatrixRoute
   '/_authenticated/coach/$id': typeof AuthenticatedCoachIdRoute
   '/_authenticated/reports/$id': typeof AuthenticatedReportsIdRoute
   '/_authenticated/screening/$id': typeof AuthenticatedScreeningIdRoute
@@ -276,9 +305,12 @@ export interface FileRouteTypes {
     | '/linkedin-optimizer'
     | '/offer-evaluator'
     | '/onboarding-plan'
+    | '/promotion-case'
+    | '/recommendations'
     | '/resumes'
     | '/salary'
     | '/studio'
+    | '/tech-matrix'
     | '/coach/$id'
     | '/reports/$id'
     | '/screening/$id'
@@ -303,9 +335,12 @@ export interface FileRouteTypes {
     | '/linkedin-optimizer'
     | '/offer-evaluator'
     | '/onboarding-plan'
+    | '/promotion-case'
+    | '/recommendations'
     | '/resumes'
     | '/salary'
     | '/studio'
+    | '/tech-matrix'
     | '/coach/$id'
     | '/reports/$id'
     | '/screening/$id'
@@ -331,9 +366,12 @@ export interface FileRouteTypes {
     | '/_authenticated/linkedin-optimizer'
     | '/_authenticated/offer-evaluator'
     | '/_authenticated/onboarding-plan'
+    | '/_authenticated/promotion-case'
+    | '/_authenticated/recommendations'
     | '/_authenticated/resumes'
     | '/_authenticated/salary'
     | '/_authenticated/studio'
+    | '/_authenticated/tech-matrix'
     | '/_authenticated/coach/$id'
     | '/_authenticated/reports/$id'
     | '/_authenticated/screening/$id'
@@ -464,6 +502,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedOnboardingPlanRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/promotion-case': {
+      id: '/_authenticated/promotion-case'
+      path: '/promotion-case'
+      fullPath: '/promotion-case'
+      preLoaderRoute: typeof AuthenticatedPromotionCaseRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/recommendations': {
+      id: '/_authenticated/recommendations'
+      path: '/recommendations'
+      fullPath: '/recommendations'
+      preLoaderRoute: typeof AuthenticatedRecommendationsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/resumes': {
       id: '/_authenticated/resumes'
       path: '/resumes'
@@ -483,6 +535,13 @@ declare module '@tanstack/react-router' {
       path: '/studio'
       fullPath: '/studio'
       preLoaderRoute: typeof AuthenticatedStudioRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/tech-matrix': {
+      id: '/_authenticated/tech-matrix'
+      path: '/tech-matrix'
+      fullPath: '/tech-matrix'
+      preLoaderRoute: typeof AuthenticatedTechMatrixRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/coach/': {
@@ -551,9 +610,12 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedLinkedinOptimizerRoute: typeof AuthenticatedLinkedinOptimizerRoute
   AuthenticatedOfferEvaluatorRoute: typeof AuthenticatedOfferEvaluatorRoute
   AuthenticatedOnboardingPlanRoute: typeof AuthenticatedOnboardingPlanRoute
+  AuthenticatedPromotionCaseRoute: typeof AuthenticatedPromotionCaseRoute
+  AuthenticatedRecommendationsRoute: typeof AuthenticatedRecommendationsRoute
   AuthenticatedResumesRoute: typeof AuthenticatedResumesRoute
   AuthenticatedSalaryRoute: typeof AuthenticatedSalaryRoute
   AuthenticatedStudioRoute: typeof AuthenticatedStudioRoute
+  AuthenticatedTechMatrixRoute: typeof AuthenticatedTechMatrixRoute
   AuthenticatedCoachIdRoute: typeof AuthenticatedCoachIdRoute
   AuthenticatedReportsIdRoute: typeof AuthenticatedReportsIdRoute
   AuthenticatedScreeningIdRoute: typeof AuthenticatedScreeningIdRoute
@@ -576,9 +638,12 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedLinkedinOptimizerRoute: AuthenticatedLinkedinOptimizerRoute,
   AuthenticatedOfferEvaluatorRoute: AuthenticatedOfferEvaluatorRoute,
   AuthenticatedOnboardingPlanRoute: AuthenticatedOnboardingPlanRoute,
+  AuthenticatedPromotionCaseRoute: AuthenticatedPromotionCaseRoute,
+  AuthenticatedRecommendationsRoute: AuthenticatedRecommendationsRoute,
   AuthenticatedResumesRoute: AuthenticatedResumesRoute,
   AuthenticatedSalaryRoute: AuthenticatedSalaryRoute,
   AuthenticatedStudioRoute: AuthenticatedStudioRoute,
+  AuthenticatedTechMatrixRoute: AuthenticatedTechMatrixRoute,
   AuthenticatedCoachIdRoute: AuthenticatedCoachIdRoute,
   AuthenticatedReportsIdRoute: AuthenticatedReportsIdRoute,
   AuthenticatedScreeningIdRoute: AuthenticatedScreeningIdRoute,

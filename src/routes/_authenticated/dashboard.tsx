@@ -17,6 +17,8 @@ import {
   Linkedin,
   CalendarDays,
   Coins,
+  Cpu,
+  Award,
   ArrowRight,
   TrendingUp,
   Users,
@@ -163,6 +165,30 @@ const AI_TOOLS = [
     color: "text-amber-500",
     bg: "bg-amber-500/10",
   },
+  {
+    to: "/tech-matrix",
+    icon: Cpu,
+    title: "Tech Stack Matrix",
+    description: "Calculate semantic skill transferability & get interview bridge arguments.",
+    color: "text-indigo-500",
+    bg: "bg-indigo-500/10",
+  },
+  {
+    to: "/recommendations",
+    icon: Award,
+    title: "Recommendations Studio",
+    description: "Draft LinkedIn recommendation letters & reference check prep sheets.",
+    color: "text-purple-500",
+    bg: "bg-purple-500/10",
+  },
+  {
+    to: "/promotion-case",
+    icon: TrendingUp,
+    title: "Promotion Case Builder",
+    description: "Format Staff+ executive promotion dossiers & manager 1-on-1 scripts.",
+    color: "text-emerald-500",
+    bg: "bg-emerald-500/10",
+  },
 ];
 
 function DashboardPage() {
@@ -231,7 +257,7 @@ function DashboardPage() {
         <div className="flex items-center gap-2">
           <h2 className="text-base font-semibold text-foreground">AI Career Intelligence Tools</h2>
           <Badge variant="outline" className="text-[10px] border-primary/20 text-primary bg-primary/5">
-            12 modules
+            15 modules
           </Badge>
         </div>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">

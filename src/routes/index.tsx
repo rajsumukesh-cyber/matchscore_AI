@@ -17,6 +17,9 @@ import {
   Scale,
   Linkedin,
   CalendarDays,
+  Cpu,
+  Award,
+  TrendingUp,
   ArrowRight,
   CheckCircle2,
   Star,
@@ -112,10 +115,25 @@ const FEATURES = [
     title: "AI Offer Evaluator & Comp Analyzer",
     body: "Compare base salary, equity, and bonuses side-by-side, evaluate total comp, and generate custom counter-offer negotiation letters.",
   },
+  {
+    icon: Cpu,
+    title: "AI Tech Stack Compatibility & Migration",
+    body: "Map your known stack against target company requirements, calculate semantic transferability, and get interview bridge arguments.",
+  },
+  {
+    icon: Award,
+    title: "AI Recommendation Letter & Reference Prep",
+    body: "Draft authentic recommendation letters from 3 perspectives (Manager, Peer, Mentee) and prepare your references for recruiter calls.",
+  },
+  {
+    icon: TrendingUp,
+    title: "AI Promotion & Review Case Builder",
+    body: "Format your shipped projects, OKRs, and leadership impact into an executive-ready promotion dossier and 1-on-1 manager script.",
+  },
 ];
 
 const STATS = [
-  { value: "12", label: "AI Modules", suffix: "" },
+  { value: "15", label: "AI Modules", suffix: "" },
   { value: "50", label: "Scoring Dimensions", suffix: "+" },
   { value: "10K", label: "Resumes Analysed", suffix: "+" },
   { value: "97", label: "ATS Pass Rate", suffix: "%" },
@@ -160,7 +178,7 @@ function Landing() {
             <div className="animate-fade-in-up">
               <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/8 px-4 py-1.5 text-xs font-semibold text-primary shadow-sm">
                 <Sparkles className="size-3.5" />
-                12-in-1 AI Career Intelligence Suite
+                15-in-1 AI Career Intelligence Suite
               </span>
             </div>
 
