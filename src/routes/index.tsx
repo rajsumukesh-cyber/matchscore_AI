@@ -15,6 +15,8 @@ import {
   MapPin,
   FileSignature,
   Scale,
+  Linkedin,
+  CalendarDays,
   ArrowRight,
   CheckCircle2,
   Star,
@@ -95,10 +97,25 @@ const FEATURES = [
     title: "Resume Head-to-Head Comparator",
     body: "Compare two candidates side-by-side across 5 scoring dimensions with a data-driven verdict and hiring recommendation.",
   },
+  {
+    icon: Linkedin,
+    title: "AI LinkedIn Profile & Headline Studio",
+    body: "Generate high-converting LinkedIn headlines in 3 styles, storytelling About sections, and Boolean recruiter search keywords.",
+  },
+  {
+    icon: CalendarDays,
+    title: "30-60-90 Day Executive Onboarding Plan",
+    body: "Create a structured, interview-ready 30-60-90 day strategic plan with objectives, deliverables, and verbal elevator pitch.",
+  },
+  {
+    icon: Coins,
+    title: "AI Offer Evaluator & Comp Analyzer",
+    body: "Compare base salary, equity, and bonuses side-by-side, evaluate total comp, and generate custom counter-offer negotiation letters.",
+  },
 ];
 
 const STATS = [
-  { value: "9", label: "AI Modules", suffix: "" },
+  { value: "12", label: "AI Modules", suffix: "" },
   { value: "50", label: "Scoring Dimensions", suffix: "+" },
   { value: "10K", label: "Resumes Analysed", suffix: "+" },
   { value: "97", label: "ATS Pass Rate", suffix: "%" },
@@ -143,7 +160,7 @@ function Landing() {
             <div className="animate-fade-in-up">
               <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/8 px-4 py-1.5 text-xs font-semibold text-primary shadow-sm">
                 <Sparkles className="size-3.5" />
-                9-in-1 AI Career Intelligence Suite
+                12-in-1 AI Career Intelligence Suite
               </span>
             </div>
 

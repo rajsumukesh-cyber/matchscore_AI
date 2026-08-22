@@ -14,6 +14,9 @@ import {
   MapPin,
   FileSignature,
   Scale,
+  Linkedin,
+  CalendarDays,
+  Coins,
   ArrowRight,
   TrendingUp,
   Users,
@@ -136,6 +139,30 @@ const AI_TOOLS = [
     color: "text-pink-500",
     bg: "bg-pink-500/10",
   },
+  {
+    to: "/linkedin-optimizer",
+    icon: Linkedin,
+    title: "LinkedIn Studio",
+    description: "Generate viral headlines, storytelling About sections & Boolean keywords.",
+    color: "text-blue-600",
+    bg: "bg-blue-600/10",
+  },
+  {
+    to: "/onboarding-plan",
+    icon: CalendarDays,
+    title: "30-60-90 Day Plan",
+    description: "Create strategic onboarding plans for final-round manager & VP interviews.",
+    color: "text-emerald-600",
+    bg: "bg-emerald-600/10",
+  },
+  {
+    to: "/offer-evaluator",
+    icon: Coins,
+    title: "Offer Evaluator & Comp",
+    description: "Compare total compensation packages & generate custom counter-offer scripts.",
+    color: "text-amber-500",
+    bg: "bg-amber-500/10",
+  },
 ];
 
 function DashboardPage() {
@@ -204,7 +231,7 @@ function DashboardPage() {
         <div className="flex items-center gap-2">
           <h2 className="text-base font-semibold text-foreground">AI Career Intelligence Tools</h2>
           <Badge variant="outline" className="text-[10px] border-primary/20 text-primary bg-primary/5">
-            9 modules
+            12 modules
           </Badge>
         </div>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">

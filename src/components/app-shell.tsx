@@ -16,6 +16,9 @@ import {
   MapPin,
   FileSignature,
   Scale,
+  Linkedin,
+  CalendarDays,
+  Coins,
   LogOut,
   Menu,
   X,
@@ -41,6 +44,9 @@ const NAV_AI = [
   { to: "/career-timeline", label: "Career timeline", icon: MapPin },
   { to: "/cover-letter", label: "Cover letter", icon: FileSignature },
   { to: "/compare", label: "Resume vs resume", icon: Scale },
+  { to: "/linkedin-optimizer", label: "LinkedIn studio", icon: Linkedin },
+  { to: "/onboarding-plan", label: "30-60-90 plan", icon: CalendarDays },
+  { to: "/offer-evaluator", label: "Offer evaluator", icon: Coins },
 ] as const;
 
 const NAV_DATA = [

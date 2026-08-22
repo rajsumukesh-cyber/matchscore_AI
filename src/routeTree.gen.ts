@@ -22,6 +22,9 @@ import { Route as AuthenticatedCoverLetterRouteImport } from './routes/_authenti
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedInterviewRouteImport } from './routes/_authenticated/interview'
 import { Route as AuthenticatedJobsRouteImport } from './routes/_authenticated/jobs'
+import { Route as AuthenticatedLinkedinOptimizerRouteImport } from './routes/_authenticated/linkedin-optimizer'
+import { Route as AuthenticatedOfferEvaluatorRouteImport } from './routes/_authenticated/offer-evaluator'
+import { Route as AuthenticatedOnboardingPlanRouteImport } from './routes/_authenticated/onboarding-plan'
 import { Route as AuthenticatedResumesRouteImport } from './routes/_authenticated/resumes'
 import { Route as AuthenticatedSalaryRouteImport } from './routes/_authenticated/salary'
 import { Route as AuthenticatedStudioRouteImport } from './routes/_authenticated/studio'
@@ -100,6 +103,24 @@ const AuthenticatedJobsRoute = AuthenticatedJobsRouteImport.update({
   path: '/jobs',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedLinkedinOptimizerRoute =
+  AuthenticatedLinkedinOptimizerRouteImport.update({
+    id: '/linkedin-optimizer',
+    path: '/linkedin-optimizer',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedOfferEvaluatorRoute =
+  AuthenticatedOfferEvaluatorRouteImport.update({
+    id: '/offer-evaluator',
+    path: '/offer-evaluator',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedOnboardingPlanRoute =
+  AuthenticatedOnboardingPlanRouteImport.update({
+    id: '/onboarding-plan',
+    path: '/onboarding-plan',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedResumesRoute = AuthenticatedResumesRouteImport.update({
   id: '/resumes',
   path: '/resumes',
@@ -167,6 +188,9 @@ export interface FileRoutesByFullPath {
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/interview': typeof AuthenticatedInterviewRoute
   '/jobs': typeof AuthenticatedJobsRoute
+  '/linkedin-optimizer': typeof AuthenticatedLinkedinOptimizerRoute
+  '/offer-evaluator': typeof AuthenticatedOfferEvaluatorRoute
+  '/onboarding-plan': typeof AuthenticatedOnboardingPlanRoute
   '/resumes': typeof AuthenticatedResumesRoute
   '/salary': typeof AuthenticatedSalaryRoute
   '/studio': typeof AuthenticatedStudioRoute
@@ -191,6 +215,9 @@ export interface FileRoutesByTo {
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/interview': typeof AuthenticatedInterviewRoute
   '/jobs': typeof AuthenticatedJobsRoute
+  '/linkedin-optimizer': typeof AuthenticatedLinkedinOptimizerRoute
+  '/offer-evaluator': typeof AuthenticatedOfferEvaluatorRoute
+  '/onboarding-plan': typeof AuthenticatedOnboardingPlanRoute
   '/resumes': typeof AuthenticatedResumesRoute
   '/salary': typeof AuthenticatedSalaryRoute
   '/studio': typeof AuthenticatedStudioRoute
@@ -217,6 +244,9 @@ export interface FileRoutesById {
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/_authenticated/interview': typeof AuthenticatedInterviewRoute
   '/_authenticated/jobs': typeof AuthenticatedJobsRoute
+  '/_authenticated/linkedin-optimizer': typeof AuthenticatedLinkedinOptimizerRoute
+  '/_authenticated/offer-evaluator': typeof AuthenticatedOfferEvaluatorRoute
+  '/_authenticated/onboarding-plan': typeof AuthenticatedOnboardingPlanRoute
   '/_authenticated/resumes': typeof AuthenticatedResumesRoute
   '/_authenticated/salary': typeof AuthenticatedSalaryRoute
   '/_authenticated/studio': typeof AuthenticatedStudioRoute
@@ -243,6 +273,9 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/interview'
     | '/jobs'
+    | '/linkedin-optimizer'
+    | '/offer-evaluator'
+    | '/onboarding-plan'
     | '/resumes'
     | '/salary'
     | '/studio'
@@ -267,6 +300,9 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/interview'
     | '/jobs'
+    | '/linkedin-optimizer'
+    | '/offer-evaluator'
+    | '/onboarding-plan'
     | '/resumes'
     | '/salary'
     | '/studio'
@@ -292,6 +328,9 @@ export interface FileRouteTypes {
     | '/_authenticated/dashboard'
     | '/_authenticated/interview'
     | '/_authenticated/jobs'
+    | '/_authenticated/linkedin-optimizer'
+    | '/_authenticated/offer-evaluator'
+    | '/_authenticated/onboarding-plan'
     | '/_authenticated/resumes'
     | '/_authenticated/salary'
     | '/_authenticated/studio'
@@ -404,6 +443,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedJobsRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/linkedin-optimizer': {
+      id: '/_authenticated/linkedin-optimizer'
+      path: '/linkedin-optimizer'
+      fullPath: '/linkedin-optimizer'
+      preLoaderRoute: typeof AuthenticatedLinkedinOptimizerRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/offer-evaluator': {
+      id: '/_authenticated/offer-evaluator'
+      path: '/offer-evaluator'
+      fullPath: '/offer-evaluator'
+      preLoaderRoute: typeof AuthenticatedOfferEvaluatorRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/onboarding-plan': {
+      id: '/_authenticated/onboarding-plan'
+      path: '/onboarding-plan'
+      fullPath: '/onboarding-plan'
+      preLoaderRoute: typeof AuthenticatedOnboardingPlanRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/resumes': {
       id: '/_authenticated/resumes'
       path: '/resumes'
@@ -488,6 +548,9 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
   AuthenticatedInterviewRoute: typeof AuthenticatedInterviewRoute
   AuthenticatedJobsRoute: typeof AuthenticatedJobsRoute
+  AuthenticatedLinkedinOptimizerRoute: typeof AuthenticatedLinkedinOptimizerRoute
+  AuthenticatedOfferEvaluatorRoute: typeof AuthenticatedOfferEvaluatorRoute
+  AuthenticatedOnboardingPlanRoute: typeof AuthenticatedOnboardingPlanRoute
   AuthenticatedResumesRoute: typeof AuthenticatedResumesRoute
   AuthenticatedSalaryRoute: typeof AuthenticatedSalaryRoute
   AuthenticatedStudioRoute: typeof AuthenticatedStudioRoute
@@ -510,6 +573,9 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
   AuthenticatedInterviewRoute: AuthenticatedInterviewRoute,
   AuthenticatedJobsRoute: AuthenticatedJobsRoute,
+  AuthenticatedLinkedinOptimizerRoute: AuthenticatedLinkedinOptimizerRoute,
+  AuthenticatedOfferEvaluatorRoute: AuthenticatedOfferEvaluatorRoute,
+  AuthenticatedOnboardingPlanRoute: AuthenticatedOnboardingPlanRoute,
   AuthenticatedResumesRoute: AuthenticatedResumesRoute,
   AuthenticatedSalaryRoute: AuthenticatedSalaryRoute,
   AuthenticatedStudioRoute: AuthenticatedStudioRoute,
