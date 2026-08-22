@@ -2,7 +2,7 @@ import { preview } from "vite";
 
 const port = parseInt(process.env.PORT || "3000", 10);
 
-console.log(`[production-server] Starting preview server on 0.0.0.0:${port}...`);
+console.log(`[production-server] Starting server on 0.0.0.0:${port}...`);
 
 try {
   const previewServer = await preview({
@@ -14,7 +14,7 @@ try {
   });
 
   previewServer.printUrls();
-  console.log(`[production-server] Successfully listening on port ${port}`);
+  console.log(`[production-server] Successfully listening on 0.0.0.0:${port}`);
 } catch (err) {
   console.error("[production-server] Failed to start server:", err);
   process.exit(1);
