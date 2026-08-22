@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MatchScore AI Development Launcher</title>
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: rgba(17, 24, 39, 0.8);
+      --border: rgba(255, 255, 255, 0.1);
+      --primary: #6366f1;
+      --primary-hover: #4f46e5;
+      --text: #f3f4f6;
+      --text-muted: #9ca3af;
+      --success: #10b981;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: radial-gradient(circle at top center, #1e1b4b 0%, var(--bg) 70%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px;
+      max-width: 580px;
+      width: 100%;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      background: rgba(99, 102, 241, 0.15);
+      color: #818cf8;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .status-box {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 24px;
+      text-align: left;
+    }
+
+    .status-title {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .code-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 14px;
+      color: #a5b4fc;
+    }
+
+    .copy-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: background 0.2s;
+    }
+
+    .copy-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .primary-btn {
+      display: block;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 20px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .primary-btn:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .ports-list {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .port-link {
+      color: #818cf8;
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    .port-link:hover {
+      text-decoration: underline;
+    }
+
+    .pulse {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--success);
+      margin-right: 6px;
+      box-shadow: 0 0 8px var(--success);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <div class="badge">
+      <span class="pulse"></span> Modern Full Stack Vite App
+    </div>
+    <h1>MatchScore AI Development Server</h1>
+    <p>
+      This application is a full stack React / Vite / TanStack Start app. It runs using the <strong>Vite Dev
+        Server</strong> rather than VS Code's static Live Server.
+    </p>
+
+    <div class="status-box">
+      <div class="status-title">1. Start the server in your terminal:</div>
+      <div class="code-row">
+        <span>npm run dev</span>
+        <button class="copy-btn"
+          onclick="navigator.clipboard.writeText('npm run dev'); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button>
+      </div>
+    </div>
+
+    <div class="btn-group">
+      <a id="directLink" href="http://localhost:3000/" class="primary-btn">
+        Open App on Localhost (Port 3000)
+      </a>
+      <div class="ports-list">
+        <a href="http://localhost:3000/" class="port-link"><strong>Port 3000 (Active)</strong></a> ·
+        <a href="http://localhost:8081/" class="port-link">Port 8081</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Auto-detect which port is responding and redirect automatically
+    const ports = [8080, 8081, 8082, 5173, 3000];
+    async function checkPorts() {
+      for (const port of ports) {
+        try {
+          const res = await fetch(`http://localhost:${port}/`, { method: 'HEAD', mode: 'no-cors' });
+          document.getElementById('directLink').href = `http://localhost:${port}/`;
+          document.getElementById('directLink').innerText = `Open App (Active on Port ${port})`;
+          // Auto-redirect if accessed from Live Server (port 5500)
+          if (window.location.port === "5500" || window.location.hostname === "127.0.0.1") {
+            window.location.href = `http://localhost:${port}/`;
+            break;
+          }
+        } catch (e) { }
+      }
+    }
+    checkPorts();
+  </script>
+</body>
+
+</html>
