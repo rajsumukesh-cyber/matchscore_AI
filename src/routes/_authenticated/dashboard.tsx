@@ -25,6 +25,8 @@ import {
   HelpCircle,
   Radar,
   Mic2,
+  Compass,
+  FileCode,
   ArrowRight,
   TrendingUp,
   Users,
@@ -243,6 +245,30 @@ const AI_TOOLS = [
     color: "text-indigo-500",
     bg: "bg-indigo-500/10",
   },
+  {
+    to: "/internship-matcher",
+    icon: Briefcase,
+    title: "Internship Matcher",
+    description: "Match student profiles to Big Tech, startup & open source internships.",
+    color: "text-amber-500",
+    bg: "bg-amber-500/10",
+  },
+  {
+    to: "/student-roadmap",
+    icon: Compass,
+    title: "Student Roadmap",
+    description: "Semester milestones, DSA targets & winning hackathon blueprints.",
+    color: "text-blue-500",
+    bg: "bg-blue-500/10",
+  },
+  {
+    to: "/academic-translator",
+    icon: FileCode,
+    title: "Academic Translator",
+    description: "Convert coursework and lab assignments into enterprise metric statements.",
+    color: "text-emerald-500",
+    bg: "bg-emerald-500/10",
+  },
 ];
 
 function DashboardPage() {
@@ -311,7 +337,7 @@ function DashboardPage() {
         <div className="flex items-center gap-2">
           <h2 className="text-base font-semibold text-foreground">AI Career Intelligence Tools</h2>
           <Badge variant="outline" className="text-[10px] border-primary/20 text-primary bg-primary/5">
-            21 modules
+            24 modules
           </Badge>
         </div>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">

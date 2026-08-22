@@ -26,6 +26,9 @@ import {
   HelpCircle,
   Radar,
   Mic2,
+  Compass,
+  FileCode,
+  Briefcase,
   ArrowRight,
   CheckCircle2,
   Star,
@@ -45,13 +48,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Score any resume against any job description with explainable AI. 21-in-1 career intelligence suite with mock interviews, ATS builder, salary predictor, reverse interviews, resilience radar, and head-to-head comparator.",
+          "Score any resume against any job description with explainable AI. 24-in-1 career & student intelligence suite with internship matcher, semester roadmaps, academic translator, mock interviews, and ATS builder.",
       },
       { property: "og:title", content: "MatchScore AI Resume to Role Match Scorer" },
       {
         property: "og:description",
         content:
-          "Explainable resume-to-role matching with 21 AI-powered career intelligence tools.",
+          "Explainable resume-to-role matching with 24 AI-powered career and student intelligence tools.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -166,10 +169,25 @@ const FEATURES = [
     title: "AI Executive Bio & Keynote Speaker Pitch",
     body: "Generate executive bios in 3 lengths and conference keynote CFP proposals to build public authority.",
   },
+  {
+    icon: Briefcase,
+    title: "AI Student Internship Matcher & Outreach",
+    body: "Match student profiles to Big Tech, startup, and open-source fellowships (GSoC, MLH) and generate founder cold emails.",
+  },
+  {
+    icon: Compass,
+    title: "AI Semester Career Roadmap & Hackathons",
+    body: "Semester-by-semester milestones covering DSA targets, core CS topics, winning hackathon blueprints, and free developer perks.",
+  },
+  {
+    icon: FileCode,
+    title: "AI Academic to Industry Resume Translator",
+    body: "Convert college coursework, lab assignments, and student projects into enterprise metric statements with architecture keywords.",
+  },
 ];
 
 const STATS = [
-  { value: "21", label: "AI Modules", suffix: "" },
+  { value: "24", label: "AI Modules", suffix: "" },
   { value: "50", label: "Scoring Dimensions", suffix: "+" },
   { value: "10K", label: "Resumes Analysed", suffix: "+" },
   { value: "97", label: "ATS Pass Rate", suffix: "%" },
@@ -214,7 +232,7 @@ function Landing() {
             <div className="animate-fade-in-up">
               <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/8 px-4 py-1.5 text-xs font-semibold text-primary shadow-sm">
                 <Sparkles className="size-3.5" />
-                21-in-1 AI Career Intelligence Suite
+                24-in-1 AI Career & Student Intelligence Suite
               </span>
             </div>
 

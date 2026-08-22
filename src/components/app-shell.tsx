@@ -28,6 +28,8 @@ import {
   HelpCircle,
   Radar,
   Mic2,
+  Compass,
+  FileCode,
   LogOut,
   Menu,
   X,
@@ -65,6 +67,9 @@ const NAV_AI = [
   { to: "/reverse-interview", label: "Reverse interview", icon: HelpCircle },
   { to: "/resilience-radar", label: "Resilience radar", icon: Radar },
   { to: "/speaker-pitch", label: "Speaker pitch", icon: Mic2 },
+  { to: "/internship-matcher", label: "Internship matcher", icon: Briefcase },
+  { to: "/student-roadmap", label: "Student roadmap", icon: Compass },
+  { to: "/academic-translator", label: "Academic translator", icon: FileCode },
 ] as const;
 
 const NAV_DATA = [
