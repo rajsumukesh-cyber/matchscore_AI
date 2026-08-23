@@ -2,7 +2,8 @@
  * Module 23 — AI Semester-by-Semester Career Roadmap & Hackathon Blueprint (server only).
  *
  * Provides college & university students with an actionable semester-by-semester
- * milestone roadmap (DSA goals, core CS, hackathon project ideas, student packs).
+ * milestone roadmap (DSA goals, core CS, hackathon project ideas, student packs)
+ * and a dedicated Zero-to-Hero Survival Guide for below-average students.
  */
 import type { AppSupabase } from "./db.server";
 
@@ -19,10 +20,20 @@ export interface SemesterMilestone {
   };
 }
 
+export interface ZeroToHeroMonth {
+  month_number: number;
+  month_title: string;
+  weekly_routine: string;
+  dsa_leetcode_target: string;
+  project_and_system_goal: string;
+  how_to_stay_consistent: string;
+}
+
 export interface StudentRoadmapResult {
   student_level: string;
   target_career_path: string;
   semesters: SemesterMilestone[];
+  zero_to_hero_intensive_plan: ZeroToHeroMonth[];
   free_student_developer_pack_checklist: { benefit: string; provider: string; how_to_claim: string }[];
   capstone_project_guidelines: string[];
 }
@@ -120,6 +131,57 @@ export async function generateStudentRoadmap(
     },
   ];
 
+  const zeroToHeroPlan: ZeroToHeroMonth[] = [
+    {
+      month_number: 1,
+      month_title: "Month 1: Language Mastery & Basic Problem Solving",
+      weekly_routine: "1 hour daily: Pick ONE language (C++, Java, or Python) and stick to it. Never switch midway.",
+      dsa_leetcode_target: "Solve 30 Easy problems (Two Sum, Valid Anagram, Reverse String, Palindrome).",
+      project_and_system_goal: "Set up GitHub profile, learn Git commit/push, and build a clean CLI tool.",
+      how_to_stay_consistent: "If you get stuck for >20 mins on a problem, look at the solution, write down the pattern in a notebook, and re-code it from scratch the next morning without looking.",
+    },
+    {
+      month_number: 2,
+      month_title: "Month 2: Essential Data Structures & Core Web Fundamentals",
+      weekly_routine: "1.5 hours daily: Master Hash Maps, Two Pointers, Stacks, and Binary Search.",
+      dsa_leetcode_target: "Solve 45 Medium problems (Blind 75 subset: 3Sum, Valid Parentheses, Binary Search).",
+      project_and_system_goal: "Learn HTML/CSS, JavaScript, and Node.js basics. Build a REST API with Express and PostgreSQL.",
+      how_to_stay_consistent: "Don't try to solve 10 problems a day. Solving 2 problems thoroughly and understanding time complexity is worth 100x more than copy-pasting.",
+    },
+    {
+      month_number: 3,
+      month_title: "Month 3: Trees, Linked Lists & First Full-Stack Deployed App",
+      weekly_routine: "1.5 hours daily: Binary Trees (Inorder/Preorder/Postorder, Max Depth) + React frontend.",
+      dsa_leetcode_target: "Solve 35 Tree and Linked List problems (Invert Binary Tree, Level Order Traversal).",
+      project_and_system_goal: "Build Project #1 (e.g. URL Shortener with Redis caching) and deploy live on Render + Vercel.",
+      how_to_stay_consistent: "A live deployed project gives you immediate confidence and something tangible to showcase to recruiters.",
+    },
+    {
+      month_number: 4,
+      month_title: "Month 4: Dynamic Programming Basics, Graphs & AI Project",
+      weekly_routine: "2 hours daily: BFS/DFS graph traversals and 1D DP (Climbing Stairs, House Robber).",
+      dsa_leetcode_target: "Solve 30 Graph and DP problems.",
+      project_and_system_goal: "Build Project #2 (AI RAG Document QA with Gemini API & pgvector).",
+      how_to_stay_consistent: "Add both projects to your MatchScore AI resume and ensure all live links work smoothly on mobile.",
+    },
+    {
+      month_number: 5,
+      month_title: "Month 5: Mock Interviews, STAR Stories & Cold Inbound Outreach",
+      weekly_routine: "2 hours daily: Timed mock interview rounds and writing 4 STAR behavioral stories.",
+      dsa_leetcode_target: "Timed problem solving: solve 1 Medium problem in under 25 minutes without hints.",
+      project_and_system_goal: "Optimize LinkedIn headline using MatchScore LinkedIn Studio, reach out to 5 startup founders daily.",
+      how_to_stay_consistent: "Cold outreach has a 10-15% response rate: sending 50 customized messages will generate 5+ interviews.",
+    },
+    {
+      month_number: 6,
+      month_title: "Month 6: Interview Execution, Offer Negotiation & Final Placement",
+      weekly_routine: "Focus on interview loops, coding round reviews, and post-interview follow-ups.",
+      dsa_leetcode_target: "Revise all previously solved 150 problems (NeetCode 150 list).",
+      project_and_system_goal: "Evaluate incoming offers using MatchScore Offer Evaluator and negotiate base compensation.",
+      how_to_stay_consistent: "Treat every rejected interview as free diagnostic data to identify and fix your exact weak points.",
+    },
+  ];
+
   const studentPack = [
     {
       benefit: "GitHub Student Developer Pack",
@@ -147,6 +209,7 @@ export async function generateStudentRoadmap(
     student_level: year,
     target_career_path: `${role} (${track})`,
     semesters,
+    zero_to_hero_intensive_plan: zeroToHeroPlan,
     free_student_developer_pack_checklist: studentPack,
     capstone_project_guidelines: [
       "Must have a live, working URL (e.g. on Render, Vercel) linked prominently in the GitHub README.",

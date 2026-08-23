@@ -11,8 +11,11 @@ import {
   Code2,
   Video,
   CheckCircle2,
-  ExternalLink,
+  Clock,
+  AlertTriangle,
+  FileCode,
   Flame,
+  Lightbulb,
 } from "lucide-react";
 import { fetchStarterProjects } from "@/lib/starter-projects.functions";
 import type { StarterProjectsResult } from "@/lib/starter-projects.server";
@@ -21,7 +24,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/_authenticated/starter-projects")({
@@ -31,7 +34,7 @@ export const Route = createFileRoute("/_authenticated/starter-projects")({
       {
         name: "description",
         content:
-          "Build impressive, recruiter-approved portfolio projects in 48 hours with architectures, free hosting steps, and resume bullets.",
+          "Build impressive, recruiter-approved portfolio projects in 48 hours with step-by-step code roadmaps, starter templates, and free hosting guides.",
       },
     ],
   }),
@@ -53,7 +56,7 @@ function StarterProjectsPage() {
       }),
     onSuccess: (data) => {
       setResult(data);
-      toast.success("48-Hour starter project blueprints ready!");
+      toast.success("48-Hour starter project blueprints & code templates ready!");
     },
     onError: (err: Error) => toast.error(err.message),
   });
@@ -68,19 +71,19 @@ function StarterProjectsPage() {
       <div>
         <h1 className="font-display text-3xl font-bold tracking-tight text-foreground flex items-center gap-2.5">
           <FolderKanban className="size-8 text-primary" />
-          AI 48-Hour Starter Project Hub (Zero Experience to Recruiter-Ready)
+          AI 48-Hour Starter Projects & Step-by-Step Code Roadmaps
         </h1>
         <p className="mt-1.5 text-sm text-muted-foreground max-w-2xl">
-          Don't have prior internships? Build high-impact, full-stack portfolio projects over a single
-          weekend with verified architectures, free 1-click deployment on Render/Vercel, and resume bullets.
+          Zero prior experience? No problem. Follow an exact hour-by-hour roadmap, copy verified starter
+          code templates, avoid common beginner bugs, and deploy live full-stack projects in 48 hours.
         </p>
       </div>
 
       <Card className="surface-panel border-primary/20">
         <CardHeader>
-          <CardTitle className="text-xl">Your Preferred Language & Target Role</CardTitle>
+          <CardTitle className="text-xl">Choose Your Preferred Language</CardTitle>
           <CardDescription>
-            Select your comfort stack to generate beginner-friendly but architecturally impressive projects.
+            Select your comfort tech stack to generate tailored architecture blueprints and starter code.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -105,23 +108,39 @@ function StarterProjectsPage() {
 
           <Button size="lg" disabled={generate.isPending} onClick={() => generate.mutate()} className="signal-gradient text-primary-foreground border-0">
             {generate.isPending ? <Loader2 className="size-4 animate-spin mr-2" /> : <Flame className="size-4 mr-2" />}
-            {generate.isPending ? "Generating 48-Hour Blueprints…" : "Generate 48-Hour Project Blueprints"}
+            {generate.isPending ? "Building Roadmaps & Code…" : "Generate Step-by-Step Project Roadmaps"}
           </Button>
         </CardContent>
       </Card>
 
       {result ? (
-        <div className="space-y-6">
-          {/* Projects Grid */}
-          <div className="space-y-6">
+        <div className="space-y-8">
+          {/* Zero to Hero Golden Rules */}
+          <Card className="surface-panel p-5 border-2 border-primary/30 bg-primary/5">
+            <h2 className="text-base font-bold text-foreground flex items-center gap-2 mb-3">
+              <Lightbulb className="size-5 text-primary" />
+              Golden Rules for Below-Average Students to Stand Out
+            </h2>
+            <div className="grid gap-2 sm:grid-cols-2">
+              {result.zero_to_hero_rules.map((rule, ri) => (
+                <div key={ri} className="p-3 rounded-lg bg-background/80 border border-border text-xs text-muted-foreground leading-relaxed">
+                  {rule}
+                </div>
+              ))}
+            </div>
+          </Card>
+
+          {/* Projects with Hour-by-Hour Roadmaps & Code */}
+          <div className="space-y-8">
             {result.projects.map((proj, i) => (
-              <Card key={i} className="surface-panel p-6 space-y-4">
-                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border pb-3">
+              <Card key={i} className="surface-panel p-6 space-y-6">
+                {/* Header */}
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border pb-4">
                   <div>
                     <Badge variant="outline" className="text-xs border-primary/30 text-primary font-bold mb-1">
                       {proj.difficulty_level}
                     </Badge>
-                    <h3 className="text-lg font-bold text-foreground">{proj.title}</h3>
+                    <h3 className="text-xl font-bold text-foreground">{proj.title}</h3>
                   </div>
                   <Badge variant="secondary" className="text-xs">
                     Free Hosting: {proj.architecture_components.free_deployment_platform}
@@ -130,32 +149,91 @@ function StarterProjectsPage() {
 
                 <p className="text-xs text-muted-foreground leading-relaxed">{proj.short_summary}</p>
 
-                {/* Architecture & Timeline */}
-                <div className="grid gap-4 sm:grid-cols-2 text-xs">
-                  <div className="p-3.5 rounded-xl bg-muted/30 border border-border space-y-1.5">
-                    <strong className="text-primary block font-bold">🛠️ Full-Stack Architecture Components</strong>
-                    <p><strong className="text-foreground">Frontend:</strong> {proj.architecture_components.frontend}</p>
-                    <p><strong className="text-foreground">Backend:</strong> {proj.architecture_components.backend}</p>
-                    <p><strong className="text-foreground">Database & Cache:</strong> {proj.architecture_components.database_and_cache}</p>
+                {/* Architecture Specs */}
+                <div className="p-4 rounded-xl bg-muted/30 border border-border grid gap-2 sm:grid-cols-3 text-xs">
+                  <div>
+                    <span className="text-muted-foreground block text-[11px] font-semibold">Frontend Layer</span>
+                    <strong className="text-foreground">{proj.architecture_components.frontend}</strong>
                   </div>
-
-                  <div className="p-3.5 rounded-xl bg-muted/30 border border-border space-y-1.5">
-                    <strong className="text-emerald-500 block font-bold">⏱️ 48-Hour Step-by-Step Schedule</strong>
-                    <ul className="space-y-1 text-muted-foreground">
-                      {proj.step_by_step_milestones.map((m, mi) => (
-                        <li key={mi} className="flex items-start gap-1">
-                          <span className="text-emerald-500 font-bold shrink-0">✦</span>
-                          <span>{m}</span>
-                        </li>
-                      ))}
-                    </ul>
+                  <div>
+                    <span className="text-muted-foreground block text-[11px] font-semibold">Backend API</span>
+                    <strong className="text-foreground">{proj.architecture_components.backend}</strong>
+                  </div>
+                  <div>
+                    <span className="text-muted-foreground block text-[11px] font-semibold">Database & Cache</span>
+                    <strong className="text-foreground">{proj.architecture_components.database_and_cache}</strong>
                   </div>
                 </div>
 
-                {/* Resume Bullet Point & Loom Pitch */}
-                <div className="p-3.5 rounded-xl bg-primary/5 border border-primary/20 space-y-2">
+                {/* Hour-by-Hour Guided Roadmap */}
+                <div className="space-y-3">
+                  <h4 className="font-display text-sm font-bold text-foreground flex items-center gap-1.5">
+                    <Clock className="size-4 text-emerald-500" />
+                    48-Hour Step-by-Step Implementation Roadmap
+                  </h4>
+
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    {proj.hour_by_hour_roadmap.map((block, bi) => (
+                      <div key={bi} className="p-4 rounded-xl bg-muted/20 border border-border space-y-2 flex flex-col justify-between">
+                        <div className="space-y-2">
+                          <div className="flex items-center justify-between">
+                            <span className="text-[11px] font-bold text-primary uppercase">{block.time_window}</span>
+                            <Badge variant="outline" className="text-[10px]">Phase {bi + 1}</Badge>
+                          </div>
+                          <strong className="text-xs font-bold text-foreground block">{block.milestone_title}</strong>
+                          <ul className="space-y-1 text-xs text-muted-foreground">
+                            {block.tasks_to_complete.map((t, ti) => (
+                              <li key={ti} className="flex items-start gap-1.5">
+                                <span className="text-emerald-500 font-bold shrink-0">✦</span>
+                                <span>{t}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        <div className="p-2 rounded-lg bg-amber-500/10 border border-amber-500/20 text-[11px] text-amber-600 dark:text-amber-400 mt-2">
+                          <strong>⚠️ Beginner Warning:</strong> {block.beginner_pitfall_and_fix}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Starter Code Templates */}
+                {proj.starter_code_templates && proj.starter_code_templates.length > 0 ? (
+                  <div className="space-y-3">
+                    <h4 className="font-display text-sm font-bold text-foreground flex items-center gap-1.5">
+                      <Code2 className="size-4 text-primary" />
+                      Starter Code Templates (Copy & Run)
+                    </h4>
+
+                    <div className="space-y-3">
+                      {proj.starter_code_templates.map((tpl, ti) => (
+                        <div key={ti} className="rounded-xl border border-border bg-muted/30 overflow-hidden">
+                          <div className="flex items-center justify-between px-4 py-2 bg-muted/60 border-b border-border text-xs">
+                            <span className="font-mono font-bold text-primary flex items-center gap-1.5">
+                              <FileCode className="size-3.5" /> {tpl.filename}
+                            </span>
+                            <Button variant="ghost" size="sm" onClick={() => copyText(tpl.code_content)}>
+                              <Copy className="size-3 mr-1" /> Copy Code
+                            </Button>
+                          </div>
+                          <pre className="p-4 text-xs font-mono whitespace-pre-wrap text-foreground leading-relaxed overflow-x-auto">
+                            {tpl.code_content}
+                          </pre>
+                          <div className="p-2.5 bg-muted/40 border-t border-border text-[11px] text-muted-foreground italic">
+                            💡 {tpl.explanation}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
+
+                {/* Resume Bullet & Loom Pitch */}
+                <div className="p-4 rounded-xl bg-primary/5 border border-primary/20 space-y-3">
                   <div className="flex items-center justify-between">
-                    <strong className="text-xs font-bold text-foreground">📄 Ready-to-Copy Resume Bullet Point</strong>
+                    <strong className="text-xs font-bold text-foreground">📄 Ready-to-Paste Resume Bullet</strong>
                     <Button variant="ghost" size="sm" onClick={() => copyText(proj.resume_bullet_point)}>
                       <Copy className="size-3.5 mr-1" /> Copy Bullet
                     </Button>
@@ -178,7 +256,7 @@ function StarterProjectsPage() {
             <CardHeader className="pb-2">
               <CardTitle className="text-base flex items-center gap-2">
                 <CheckCircle2 className="size-4 text-emerald-500" />
-                Portfolio Review Checklist (What Hiring Managers Check)
+                Portfolio Review Checklist (What Tech Recruiters Look For)
               </CardTitle>
             </CardHeader>
             <CardContent>

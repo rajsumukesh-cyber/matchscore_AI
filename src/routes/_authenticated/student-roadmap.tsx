@@ -12,7 +12,10 @@ import {
   Trophy,
   Gift,
   CheckCircle2,
-  FileCode,
+  Calendar,
+  Zap,
+  Target,
+  Flame,
 } from "lucide-react";
 import { fetchStudentRoadmap } from "@/lib/student-roadmap.functions";
 import type { StudentRoadmapResult } from "@/lib/student-roadmap.server";
@@ -21,17 +24,17 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/_authenticated/student-roadmap")({
   head: () => ({
     meta: [
-      { title: "AI Semester Career Roadmap & Hackathon Prep MatchScore" },
+      { title: "AI Semester Career Roadmap & Zero-to-Hero Guide MatchScore" },
       {
         name: "description",
         content:
-          "Generate a personalized semester-by-semester career milestone roadmap, hackathon project ideas, and student developer pack benefits.",
+          "Generate personalized semester milestone roadmaps and a 6-month zero-to-hero placement survival guide for below-average students.",
       },
     ],
   }),
@@ -55,7 +58,7 @@ function StudentRoadmapPage() {
       }),
     onSuccess: (data) => {
       setResult(data);
-      toast.success("Semester career roadmap generated!");
+      toast.success("Semester career roadmap & Zero-to-Hero plan generated!");
     },
     onError: (err: Error) => toast.error(err.message),
   });
@@ -65,11 +68,11 @@ function StudentRoadmapPage() {
       <div>
         <h1 className="font-display text-3xl font-bold tracking-tight text-foreground flex items-center gap-2.5">
           <MapPin className="size-8 text-primary" />
-          AI Semester-by-Semester Career Roadmap & Hackathon Hub
+          AI Semester Career Roadmap & Zero-to-Hero Survival Guide
         </h1>
         <p className="mt-1.5 text-sm text-muted-foreground max-w-2xl">
-          A step-by-step engineering curriculum mapped across your college semesters. Get concrete
-          DSA targets, core CS milestones, award-winning hackathon blueprints, and free developer perks.
+          Whether you have a 4-year degree timeline or only 6 months to get placement-ready from scratch:
+          follow structured DSA targets, core CS milestones, winning hackathons, and free student perks.
         </p>
       </div>
 
@@ -107,75 +110,132 @@ function StudentRoadmapPage() {
 
           <Button size="lg" disabled={generate.isPending} onClick={() => generate.mutate()} className="signal-gradient text-primary-foreground border-0">
             {generate.isPending ? <Loader2 className="size-4 animate-spin mr-2" /> : <MapPin className="size-4 mr-2" />}
-            {generate.isPending ? "Generating Roadmap…" : "Generate Semester-by-Semester Roadmap"}
+            {generate.isPending ? "Generating Roadmap…" : "Generate Semester & 6-Month Roadmap"}
           </Button>
         </CardContent>
       </Card>
 
       {result ? (
-        <div className="space-y-6">
-          {/* 4 Phases Timeline */}
-          <div className="space-y-4">
-            {result.semesters.map((sem, i) => (
-              <Card key={i} className="surface-panel p-5 space-y-4">
-                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border pb-3">
-                  <div>
-                    <span className="text-xs font-bold text-primary uppercase">{sem.semester_range}</span>
-                    <h3 className="text-base font-bold text-foreground">{sem.phase_name}</h3>
-                  </div>
-                  <Badge variant="outline" className="text-xs border-primary/30 text-primary">
-                    Focus: {sem.focus_area}
-                  </Badge>
-                </div>
+        <div className="space-y-8">
+          {/* Main Tabs: 4-Year Semester Timeline vs 6-Month Zero-to-Hero Intensive */}
+          <Tabs defaultValue="zero-to-hero" className="w-full">
+            <TabsList className="grid w-full grid-cols-2 max-w-md mx-auto mb-6">
+              <TabsTrigger value="zero-to-hero" className="flex items-center gap-1.5">
+                <Flame className="size-4 text-amber-500" />
+                6-Month Zero-to-Hero Intensive
+              </TabsTrigger>
+              <TabsTrigger value="semesters" className="flex items-center gap-1.5">
+                <Calendar className="size-4 text-primary" />
+                4-Year Semester Roadmap
+              </TabsTrigger>
+            </TabsList>
 
-                <div className="grid gap-4 sm:grid-cols-3 text-xs">
-                  {/* DSA Column */}
-                  <div className="p-3.5 rounded-xl bg-muted/30 border border-border space-y-2">
-                    <strong className="text-emerald-500 flex items-center gap-1.5 font-bold">
-                      <Code2 className="size-4" /> DSA & Problem Solving
-                    </strong>
-                    <ul className="space-y-1.5 text-muted-foreground">
-                      {sem.dsa_milestones.map((d, di) => (
-                        <li key={di} className="flex items-start gap-1.5">
-                          <span className="text-emerald-500 font-bold shrink-0">✦</span>
-                          <span>{d}</span>
-                        </li>
-                      ))}
-                    </ul>
+            {/* Tab 1: 6-Month Zero-to-Hero Intensive Plan */}
+            <TabsContent value="zero-to-hero" className="space-y-4">
+              <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-700 dark:text-amber-300 leading-relaxed">
+                <strong>🔥 The Zero-to-Hero Blueprint:</strong> Designed for students starting late, with low CGPA or zero coding background. Spend 1.5 to 2 hours daily following this month-by-month routine to become job-ready in 180 days.
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {result.zero_to_hero_intensive_plan.map((m, mi) => (
+                  <Card key={mi} className="surface-panel p-5 space-y-3 flex flex-col justify-between">
+                    <div className="space-y-2.5">
+                      <div className="flex items-center justify-between">
+                        <Badge variant="outline" className="text-xs border-amber-500/30 text-amber-500 font-bold">
+                          Month {m.month_number}
+                        </Badge>
+                        <span className="text-[11px] text-muted-foreground font-semibold">Stage {mi + 1}/6</span>
+                      </div>
+
+                      <h3 className="text-sm font-bold text-foreground">{m.month_title}</h3>
+
+                      <div className="p-2.5 rounded-lg bg-muted/40 border border-border text-xs space-y-1">
+                        <strong className="text-primary block text-[11px]">⏰ Daily Routine:</strong>
+                        <p className="text-muted-foreground">{m.weekly_routine}</p>
+                      </div>
+
+                      <div className="p-2.5 rounded-lg bg-emerald-500/5 border border-emerald-500/20 text-xs space-y-1">
+                        <strong className="text-emerald-500 block text-[11px]">🎯 DSA Target:</strong>
+                        <p className="text-foreground">{m.dsa_leetcode_target}</p>
+                      </div>
+
+                      <div className="p-2.5 rounded-lg bg-blue-500/5 border border-blue-500/20 text-xs space-y-1">
+                        <strong className="text-blue-500 block text-[11px]">🛠️ Project & System Goal:</strong>
+                        <p className="text-foreground">{m.project_and_system_goal}</p>
+                      </div>
+                    </div>
+
+                    <div className="pt-2 border-t border-border text-[11px] text-muted-foreground italic">
+                      💡 <strong>Consistency Tip:</strong> {m.how_to_stay_consistent}
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+
+            {/* Tab 2: 4-Year Semester Roadmap */}
+            <TabsContent value="semesters" className="space-y-4">
+              {result.semesters.map((sem, i) => (
+                <Card key={i} className="surface-panel p-5 space-y-4">
+                  <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border pb-3">
+                    <div>
+                      <span className="text-xs font-bold text-primary uppercase">{sem.semester_range}</span>
+                      <h3 className="text-base font-bold text-foreground">{sem.phase_name}</h3>
+                    </div>
+                    <Badge variant="outline" className="text-xs border-primary/30 text-primary">
+                      Focus: {sem.focus_area}
+                    </Badge>
                   </div>
 
-                  {/* Systems & Core CS */}
-                  <div className="p-3.5 rounded-xl bg-muted/30 border border-border space-y-2">
-                    <strong className="text-blue-500 flex items-center gap-1.5 font-bold">
-                      <Terminal className="size-4" /> Systems & Core CS
-                    </strong>
-                    <ul className="space-y-1.5 text-muted-foreground">
-                      {sem.system_core_topics.map((s, si) => (
-                        <li key={si} className="flex items-start gap-1.5">
-                          <span className="text-blue-500 font-bold shrink-0">✦</span>
-                          <span>{s}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  <div className="grid gap-4 sm:grid-cols-3 text-xs">
+                    {/* DSA Column */}
+                    <div className="p-3.5 rounded-xl bg-muted/30 border border-border space-y-2">
+                      <strong className="text-emerald-500 flex items-center gap-1.5 font-bold">
+                        <Code2 className="size-4" /> DSA & Problem Solving
+                      </strong>
+                      <ul className="space-y-1.5 text-muted-foreground">
+                        {sem.dsa_milestones.map((d, di) => (
+                          <li key={di} className="flex items-start gap-1.5">
+                            <span className="text-emerald-500 font-bold shrink-0">✦</span>
+                            <span>{d}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
 
-                  {/* Hackathon Project Idea */}
-                  <div className="p-3.5 rounded-xl bg-primary/5 border border-primary/20 space-y-1.5">
-                    <strong className="text-primary flex items-center gap-1.5 font-bold">
-                      <Trophy className="size-4" /> Hackathon Project Blueprint
-                    </strong>
-                    <p className="font-bold text-foreground">{sem.recommended_hackathon_project.project_title}</p>
-                    <p className="text-[11px] text-muted-foreground">
-                      <strong className="text-foreground">Stack:</strong> {sem.recommended_hackathon_project.architecture_stack}
-                    </p>
-                    <p className="text-[11px] text-emerald-600 dark:text-emerald-400">
-                      <strong className="text-foreground">To Win:</strong> {sem.recommended_hackathon_project.killer_feature_to_win}
-                    </p>
+                    {/* Systems & Core CS */}
+                    <div className="p-3.5 rounded-xl bg-muted/30 border border-border space-y-2">
+                      <strong className="text-blue-500 flex items-center gap-1.5 font-bold">
+                        <Terminal className="size-4" /> Systems & Core CS
+                      </strong>
+                      <ul className="space-y-1.5 text-muted-foreground">
+                        {sem.system_core_topics.map((s, si) => (
+                          <li key={si} className="flex items-start gap-1.5">
+                            <span className="text-blue-500 font-bold shrink-0">✦</span>
+                            <span>{s}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Hackathon Project Idea */}
+                    <div className="p-3.5 rounded-xl bg-primary/5 border border-primary/20 space-y-1.5">
+                      <strong className="text-primary flex items-center gap-1.5 font-bold">
+                        <Trophy className="size-4" /> Hackathon Project Blueprint
+                      </strong>
+                      <p className="font-bold text-foreground">{sem.recommended_hackathon_project.project_title}</p>
+                      <p className="text-[11px] text-muted-foreground">
+                        <strong className="text-foreground">Stack:</strong> {sem.recommended_hackathon_project.architecture_stack}
+                      </p>
+                      <p className="text-[11px] text-emerald-600 dark:text-emerald-400">
+                        <strong className="text-foreground">To Win:</strong> {sem.recommended_hackathon_project.killer_feature_to_win}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </Card>
-            ))}
-          </div>
+                </Card>
+              ))}
+            </TabsContent>
+          </Tabs>
 
           {/* Student Developer Pack Checklist */}
           <Card className="surface-panel">
