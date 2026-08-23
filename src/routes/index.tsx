@@ -32,7 +32,6 @@ import {
   Briefcase,
   FolderKanban,
   HeartHandshake,
-  Trophy,
   GitPullRequest,
   BrainCircuit,
   ArrowRight,
@@ -54,13 +53,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Score any resume against any job description with explainable AI. 30-in-1 career & student intelligence suite with hackathon pitch kits, open source PR finders, aptitude coaches, and ATS builders.",
+          "Score any resume against any job description with explainable AI. 29-in-1 career & student intelligence suite with open source PR finders, placement aptitude coaches, low CGPA defense, and ATS builders.",
       },
       { property: "og:title", content: "MatchScore AI Resume to Role Match Scorer" },
       {
         property: "og:description",
         content:
-          "Explainable resume-to-role matching with 30 AI-powered career and student intelligence tools.",
+          "Explainable resume-to-role matching with 29 AI-powered career and student intelligence tools.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -206,11 +205,6 @@ const FEATURES = [
     body: "Master the 4-step panic-free coding interview framework and emergency verbal lifelines when stuck.",
   },
   {
-    icon: Trophy,
-    title: "AI Hackathon Pitch & Demo Kit",
-    body: "2-minute spoken judge pitch, 5-slide deck structure, and bulletproof answers to tough judge questions.",
-  },
-  {
     icon: GitPullRequest,
     title: "AI Open Source PR Finder",
     body: "Discover curated beginner-friendly GitHub repositories, step-by-step Git fork workflows, and PR templates.",
@@ -223,7 +217,7 @@ const FEATURES = [
 ];
 
 const STATS = [
-  { value: "30", label: "AI Modules", suffix: "" },
+  { value: "29", label: "AI Modules", suffix: "" },
   { value: "50", label: "Scoring Dimensions", suffix: "+" },
   { value: "10K", label: "Resumes Analysed", suffix: "+" },
   { value: "97", label: "ATS Pass Rate", suffix: "%" },
@@ -268,7 +262,7 @@ function Landing() {
             <div className="animate-fade-in-up">
               <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/8 px-4 py-1.5 text-xs font-semibold text-primary shadow-sm">
                 <Sparkles className="size-3.5" />
-                30-in-1 AI Career & Student Intelligence Suite
+                29-in-1 AI Career & Student Intelligence Suite
               </span>
             </div>
 

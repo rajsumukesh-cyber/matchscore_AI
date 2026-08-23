@@ -24,7 +24,6 @@ import { Route as AuthenticatedCompareRouteImport } from './routes/_authenticate
 import { Route as AuthenticatedCoverLetterRouteImport } from './routes/_authenticated/cover-letter'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedFreelanceCalculatorRouteImport } from './routes/_authenticated/freelance-calculator'
-import { Route as AuthenticatedHackathonPitchRouteImport } from './routes/_authenticated/hackathon-pitch'
 import { Route as AuthenticatedInternshipMatcherRouteImport } from './routes/_authenticated/internship-matcher'
 import { Route as AuthenticatedInterviewRouteImport } from './routes/_authenticated/interview'
 import { Route as AuthenticatedInterviewCoachRouteImport } from './routes/_authenticated/interview-coach'
@@ -133,12 +132,6 @@ const AuthenticatedFreelanceCalculatorRoute =
   AuthenticatedFreelanceCalculatorRouteImport.update({
     id: '/freelance-calculator',
     path: '/freelance-calculator',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
-const AuthenticatedHackathonPitchRoute =
-  AuthenticatedHackathonPitchRouteImport.update({
-    id: '/hackathon-pitch',
-    path: '/hackathon-pitch',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedInternshipMatcherRoute =
@@ -314,7 +307,6 @@ export interface FileRoutesByFullPath {
   '/cover-letter': typeof AuthenticatedCoverLetterRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/freelance-calculator': typeof AuthenticatedFreelanceCalculatorRoute
-  '/hackathon-pitch': typeof AuthenticatedHackathonPitchRoute
   '/internship-matcher': typeof AuthenticatedInternshipMatcherRoute
   '/interview': typeof AuthenticatedInterviewRoute
   '/interview-coach': typeof AuthenticatedInterviewCoachRoute
@@ -359,7 +351,6 @@ export interface FileRoutesByTo {
   '/cover-letter': typeof AuthenticatedCoverLetterRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/freelance-calculator': typeof AuthenticatedFreelanceCalculatorRoute
-  '/hackathon-pitch': typeof AuthenticatedHackathonPitchRoute
   '/internship-matcher': typeof AuthenticatedInternshipMatcherRoute
   '/interview': typeof AuthenticatedInterviewRoute
   '/interview-coach': typeof AuthenticatedInterviewCoachRoute
@@ -406,7 +397,6 @@ export interface FileRoutesById {
   '/_authenticated/cover-letter': typeof AuthenticatedCoverLetterRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/_authenticated/freelance-calculator': typeof AuthenticatedFreelanceCalculatorRoute
-  '/_authenticated/hackathon-pitch': typeof AuthenticatedHackathonPitchRoute
   '/_authenticated/internship-matcher': typeof AuthenticatedInternshipMatcherRoute
   '/_authenticated/interview': typeof AuthenticatedInterviewRoute
   '/_authenticated/interview-coach': typeof AuthenticatedInterviewCoachRoute
@@ -453,7 +443,6 @@ export interface FileRouteTypes {
     | '/cover-letter'
     | '/dashboard'
     | '/freelance-calculator'
-    | '/hackathon-pitch'
     | '/internship-matcher'
     | '/interview'
     | '/interview-coach'
@@ -498,7 +487,6 @@ export interface FileRouteTypes {
     | '/cover-letter'
     | '/dashboard'
     | '/freelance-calculator'
-    | '/hackathon-pitch'
     | '/internship-matcher'
     | '/interview'
     | '/interview-coach'
@@ -544,7 +532,6 @@ export interface FileRouteTypes {
     | '/_authenticated/cover-letter'
     | '/_authenticated/dashboard'
     | '/_authenticated/freelance-calculator'
-    | '/_authenticated/hackathon-pitch'
     | '/_authenticated/internship-matcher'
     | '/_authenticated/interview'
     | '/_authenticated/interview-coach'
@@ -687,13 +674,6 @@ declare module '@tanstack/react-router' {
       path: '/freelance-calculator'
       fullPath: '/freelance-calculator'
       preLoaderRoute: typeof AuthenticatedFreelanceCalculatorRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/hackathon-pitch': {
-      id: '/_authenticated/hackathon-pitch'
-      path: '/hackathon-pitch'
-      fullPath: '/hackathon-pitch'
-      preLoaderRoute: typeof AuthenticatedHackathonPitchRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/internship-matcher': {
@@ -908,7 +888,6 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedCoverLetterRoute: typeof AuthenticatedCoverLetterRoute
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
   AuthenticatedFreelanceCalculatorRoute: typeof AuthenticatedFreelanceCalculatorRoute
-  AuthenticatedHackathonPitchRoute: typeof AuthenticatedHackathonPitchRoute
   AuthenticatedInternshipMatcherRoute: typeof AuthenticatedInternshipMatcherRoute
   AuthenticatedInterviewRoute: typeof AuthenticatedInterviewRoute
   AuthenticatedInterviewCoachRoute: typeof AuthenticatedInterviewCoachRoute
@@ -951,7 +930,6 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedCoverLetterRoute: AuthenticatedCoverLetterRoute,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
   AuthenticatedFreelanceCalculatorRoute: AuthenticatedFreelanceCalculatorRoute,
-  AuthenticatedHackathonPitchRoute: AuthenticatedHackathonPitchRoute,
   AuthenticatedInternshipMatcherRoute: AuthenticatedInternshipMatcherRoute,
   AuthenticatedInterviewRoute: AuthenticatedInterviewRoute,
   AuthenticatedInterviewCoachRoute: AuthenticatedInterviewCoachRoute,

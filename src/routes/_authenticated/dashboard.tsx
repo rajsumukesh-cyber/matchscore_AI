@@ -30,7 +30,6 @@ import {
   ShieldAlert,
   FolderKanban,
   HeartHandshake,
-  Trophy,
   GitPullRequest,
   BrainCircuit,
   ArrowRight,
@@ -300,14 +299,6 @@ const AI_TOOLS = [
     bg: "bg-rose-500/10",
   },
   {
-    to: "/hackathon-pitch",
-    icon: Trophy,
-    title: "Hackathon Pitch Kit",
-    description: "2-minute judge pitch, 5-slide deck outline & tough judge Q&A defense.",
-    color: "text-amber-500",
-    bg: "bg-amber-500/10",
-  },
-  {
     to: "/open-source",
     icon: GitPullRequest,
     title: "Open Source PR Finder",
@@ -391,7 +382,7 @@ function DashboardPage() {
         <div className="flex items-center gap-2">
           <h2 className="text-base font-semibold text-foreground">AI Career Intelligence Tools</h2>
           <Badge variant="outline" className="text-[10px] border-primary/20 text-primary bg-primary/5">
-            30 modules
+            29 modules
           </Badge>
         </div>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
