@@ -22,6 +22,7 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { InteractiveMindMap } from "@/components/mind-map";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/_authenticated/interview-coach")({
@@ -121,6 +122,67 @@ function InterviewCoachPage() {
 
       {result ? (
         <div className="space-y-6">
+          {/* Visual Panic-Free Coding Framework Mind Map */}
+          <InteractiveMindMap
+            rootTitle="Panic-Free Coding Interview 4-Step Flow Mind Map"
+            rootSubtitle="Follow this predictable 4-phase mental framework to stay calm, structure your thoughts out loud, secure passing points, and avoid freezing under the timer."
+            rootBadge="Interview Mind Map"
+            nodes={[
+              {
+                id: "step-1",
+                label: "Phase 1: Clarification Buffer",
+                icon: "🧘",
+                color: "cyan",
+                badge: "Minutes 0 - 5",
+                description: "Calm your nervous system by asking structured clarifying questions before touching any code.",
+                children: [
+                  { id: "s1-1", label: "Ask about Constraints (e.g. Array length, Negative values)" },
+                  { id: "s1-2", label: "Clarify Expected Return Type & Null cases" },
+                  { id: "s1-3", label: "Write down 2 Sample Test Cases on Screen" },
+                ],
+              },
+              {
+                id: "step-2",
+                label: "Phase 2: Safe Brute-Force & Complexity",
+                icon: "🛡️",
+                color: "amber",
+                badge: "Minutes 5 - 12",
+                description: "State the straightforward O(N²) solution immediately to secure a working baseline score.",
+                children: [
+                  { id: "s2-1", label: "State: 'To start, a brute force approach would be...'" },
+                  { id: "s2-2", label: "State Big-O Time & Space Complexity out loud" },
+                  { id: "s2-3", label: "Identify Bottleneck (e.g. nested loop lookup)" },
+                ],
+              },
+              {
+                id: "step-3",
+                label: "Phase 3: Optimal Pattern Pivot",
+                icon: "⚡",
+                color: "emerald",
+                badge: "Minutes 12 - 25",
+                description: "Introduce the optimal data structure (Hash Map, Two Pointers, Monotonic Stack) to achieve O(N).",
+                children: [
+                  { id: "s3-1", label: "Trade Space for Time (Hash Map lookups)" },
+                  { id: "s3-2", label: "Explain Pseudo-Code Step-by-Step Before Typing" },
+                  { id: "s3-3", label: "Write Clean, Self-Documenting Code" },
+                ],
+              },
+              {
+                id: "step-4",
+                label: "Phase 4: Dry-Run & Edge Case Defense",
+                icon: "🎯",
+                color: "primary",
+                badge: "Minutes 25 - 35",
+                description: "Manually trace variable state through your code with an edge case to prove correctness.",
+                children: [
+                  { id: "s4-1", label: "Trace Sample Input with Line-by-Line Pointer State" },
+                  { id: "s4-2", label: "Test Empty Array, 1-Element & Duplicate Cases" },
+                  { id: "s4-3", label: "Summarize Final Time & Space Big-O" },
+                ],
+              },
+            ]}
+          />
+
           {/* 4-Step Panic-Free Protocol */}
           <section className="space-y-4">
             <h2 className="font-display text-lg font-bold text-foreground flex items-center gap-2">

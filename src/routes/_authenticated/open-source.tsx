@@ -22,6 +22,7 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { InteractiveMindMap } from "@/components/mind-map";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/_authenticated/open-source")({
@@ -112,6 +113,67 @@ function OpenSourcePage() {
 
       {result ? (
         <div className="space-y-8">
+          {/* Visual Open Source PR Journey Mind Map */}
+          <InteractiveMindMap
+            rootTitle="Open-Source GitHub Contribution Mind Map"
+            rootSubtitle="A visual step-by-step branch roadmap showing how to discover beginner issues, set up local Git workflows, write verified tests, and get your PR merged."
+            rootBadge="Open Source Mind Map"
+            nodes={[
+              {
+                id: "discovery",
+                label: "Issue Discovery & Triage",
+                icon: "🔎",
+                color: "primary",
+                badge: "Discovery",
+                description: "Find active, beginner-friendly issues in high-profile open-source repositories.",
+                children: [
+                  { id: "disc-1", label: "Filter by 'good first issue' / 'help wanted'" },
+                  { id: "disc-2", label: "Read CONTRIBUTING.md & Code of Conduct" },
+                  { id: "disc-3", label: "Comment on issue to claim assignment" },
+                ],
+              },
+              {
+                id: "git-fork",
+                label: "Git Fork & Feature Branching",
+                icon: "🌿",
+                color: "emerald",
+                badge: "Git Flow",
+                description: "Maintain a clean, sync-friendly local git repository structure.",
+                children: [
+                  { id: "gf-1", label: "Fork repository to personal GitHub profile" },
+                  { id: "gf-2", label: "git clone & set upstream remote" },
+                  { id: "gf-3", label: "git checkout -b fix/issue-name" },
+                ],
+              },
+              {
+                id: "testing",
+                label: "Local Testing & Linting",
+                icon: "🧪",
+                color: "cyan",
+                badge: "Quality Gate",
+                description: "Guarantee that your pull request does not break any existing test suites or CI workflows.",
+                children: [
+                  { id: "t-1", label: "Run test runner (npm test / pytest)" },
+                  { id: "t-2", label: "Verify code style (npm run lint)" },
+                  { id: "t-3", label: "Add unit test for your modified logic" },
+                ],
+              },
+              {
+                id: "pr-merge",
+                label: "PR Description & Maintainer Review",
+                icon: "🚀",
+                color: "amber",
+                badge: "Merge Stage",
+                description: "Write clear, structured PR notes with screenshots and thank maintainers.",
+                children: [
+                  { id: "prm-1", label: "Reference issue number (#123) in PR body" },
+                  { id: "prm-2", label: "Attach working UI screenshots or logs" },
+                  { id: "prm-3", label: "Address code review feedback promptly" },
+                ],
+              },
+            ]}
+          />
+
           {/* Top Repositories Grid */}
           <section className="space-y-4">
             <h2 className="font-display text-lg font-bold text-foreground flex items-center gap-2">

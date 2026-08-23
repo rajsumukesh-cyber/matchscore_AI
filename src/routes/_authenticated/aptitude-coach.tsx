@@ -22,6 +22,7 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { InteractiveMindMap } from "@/components/mind-map";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/_authenticated/aptitude-coach")({
@@ -106,6 +107,67 @@ function AptitudeCoachPage() {
 
       {result ? (
         <div className="space-y-8">
+          {/* Visual Placement Aptitude Fast-Math Mind Map */}
+          <InteractiveMindMap
+            rootTitle="Campus Recruitment Aptitude Strategy Mind Map"
+            rootSubtitle="A visual taxonomy of high-yield mental math shortcuts, LCM work rates, relative motion equations, and deductive Venn logic."
+            rootBadge="Aptitude Mind Map"
+            nodes={[
+              {
+                id: "quant-speed",
+                label: "Quantitative Fast-Math",
+                icon: "⚡",
+                color: "amber",
+                badge: "10-Sec Tricks",
+                description: "Solve arithmetic and algebra problems in seconds using unit digits and LCM methods.",
+                children: [
+                  { id: "qs-1", label: "Time & Work: LCM Total Units Method (Zero Fractions)" },
+                  { id: "qs-2", label: "Speed & Distance: Train + Platform Relative Motion" },
+                  { id: "qs-3", label: "Percentages & Markup: Effective Change a + b + (ab/100)" },
+                ],
+              },
+              {
+                id: "logical-reasoning",
+                label: "Logical Deduction & Patterns",
+                icon: "🧠",
+                color: "cyan",
+                badge: "Deduction",
+                description: "Eliminate wrong answer choices instantly with structured logic diagrams.",
+                children: [
+                  { id: "lr-1", label: "Syllogisms: Venn Model Cross-Out Method" },
+                  { id: "lr-2", label: "Blood Relations: Family Tree Generations Diagram" },
+                  { id: "lr-3", label: "Seating Arrangements: Inside / Outside Circular Facing" },
+                ],
+              },
+              {
+                id: "verbal-critical",
+                label: "Verbal & Critical Reading",
+                icon: "📖",
+                color: "emerald",
+                badge: "Comprehension",
+                description: "Extract passage conclusions and spot grammatical tense inconsistencies.",
+                children: [
+                  { id: "vc-1", label: "Reading Comprehension: Keyword Scanning Strategy" },
+                  { id: "vc-2", label: "Sentence Correction: Subject-Verb Agreement Rules" },
+                  { id: "vc-3", label: "Para Jumbles: Mandatory Pair Identification" },
+                ],
+              },
+              {
+                id: "time-management",
+                label: "Exam Day Clock Strategy",
+                icon: "⏱️",
+                color: "primary",
+                badge: "Exam Day",
+                description: "Maximize your total score by eliminating time traps during the test.",
+                children: [
+                  { id: "tm-1", label: "60-Second Hard Stop on Unsolved Questions" },
+                  { id: "tm-2", label: "Eliminate 2 Obviously Incorrect Options First" },
+                  { id: "tm-3", label: "Memorize Squares to 30 & Fractional Reciprocals" },
+                ],
+              },
+            ]}
+          />
+
           {/* Shortcuts Grid */}
           <section className="space-y-4">
             <h2 className="font-display text-lg font-bold text-foreground flex items-center gap-2">

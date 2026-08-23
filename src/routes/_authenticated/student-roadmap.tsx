@@ -25,6 +25,7 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { InteractiveMindMap } from "@/components/mind-map";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/_authenticated/student-roadmap")({
@@ -117,6 +118,71 @@ function StudentRoadmapPage() {
 
       {result ? (
         <div className="space-y-8">
+          {/* Visual Career & Engineering Mind Map */}
+          <InteractiveMindMap
+            rootTitle="Computer Science Career & Skills Mind Map"
+            rootSubtitle="A high-level visual branch overview connecting foundational DSA, core computer systems, full-stack development, and interview placement milestones."
+            rootBadge="Interactive Mind Map"
+            nodes={[
+              {
+                id: "dsa",
+                label: "Data Structures & Algorithms",
+                icon: "⚡",
+                color: "emerald",
+                badge: "Core Logic",
+                description: "Master computational problem-solving patterns from basic arrays to complex dynamic programming.",
+                children: [
+                  { id: "dsa-1", label: "Arrays, Two Pointers & Hash Maps (Blind 75)" },
+                  { id: "dsa-2", label: "Binary Search, Stacks & Linked Lists" },
+                  { id: "dsa-3", label: "Binary Trees, BFS / DFS & Graphs" },
+                  { id: "dsa-4", label: "Dynamic Programming & Recursion" },
+                ],
+              },
+              {
+                id: "systems",
+                label: "Core Computer Systems",
+                icon: "🖥️",
+                color: "cyan",
+                badge: "System Core",
+                description: "Fundamental computer science theory asked in technical rounds at Tier-1 companies.",
+                children: [
+                  { id: "sys-1", label: "Database Management (SQL, Indexes, ACID)" },
+                  { id: "sys-2", label: "Operating Systems (Threads, Deadlocks, Virtual Memory)" },
+                  { id: "sys-3", label: "Computer Networks (TCP/IP, HTTP/3, WebSockets)" },
+                  { id: "sys-4", label: "Low-Level Design (SOLID & Design Patterns)" },
+                ],
+              },
+              {
+                id: "fullstack",
+                label: "Full Stack & Cloud Architecture",
+                icon: "🛠️",
+                color: "primary",
+                badge: "Proof of Work",
+                description: "Ship full-stack enterprise web applications with databases and live cloud hosting.",
+                children: [
+                  { id: "fs-1", label: "Modern Frontend (React, SSR, Tailwind)" },
+                  { id: "fs-2", label: "Backend APIs (Node.js Express / Python FastAPI)" },
+                  { id: "fs-3", label: "Database & Cache (PostgreSQL + Redis)" },
+                  { id: "fs-4", label: "Docker, CI/CD & Free Deployment (Render/Vercel)" },
+                ],
+              },
+              {
+                id: "placement",
+                label: "Placement & Interview Mastery",
+                icon: "🎯",
+                color: "amber",
+                badge: "Placement Drive",
+                description: "Turn technical mastery into high-paying job offers with structured communication.",
+                children: [
+                  { id: "pl-1", label: "Behavioral STAR Stories & Leadership Answers" },
+                  { id: "pl-2", label: "Placement Aptitude & Fast-Math Shortcuts" },
+                  { id: "pl-3", label: "Cold Email Outreach to Startup Founders" },
+                  { id: "pl-4", label: "Offer Evaluation & Salary Negotiation" },
+                ],
+              },
+            ]}
+          />
+
           {/* Main Tabs: 4-Year Semester Timeline vs 6-Month Zero-to-Hero Intensive */}
           <Tabs defaultValue="zero-to-hero" className="w-full">
             <TabsList className="grid w-full grid-cols-2 max-w-md mx-auto mb-6">

@@ -23,6 +23,7 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { InteractiveMindMap } from "@/components/mind-map";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/_authenticated/cgpa-rebrander")({
@@ -127,6 +128,67 @@ function CgpaRebranderPage() {
 
       {result ? (
         <div className="space-y-6">
+          {/* Visual Low CGPA & Non-CS Pivot Mind Map */}
+          <InteractiveMindMap
+            rootTitle="Low CGPA & Non-CS Career Defense Mind Map"
+            rootSubtitle="Pivot away from academic test scores to undeniable engineering proof-of-work, calibrated recruiter verbal scripts, and zero-GPA hiring channels."
+            rootBadge="Career Pivot Mind Map"
+            nodes={[
+              {
+                id: "pow-pillar",
+                label: "Proof-of-Work Offsetting",
+                icon: "🏆",
+                color: "emerald",
+                badge: "High Impact",
+                description: "Overcome academic marks by showcasing real, live-running web applications and verifiable contributions.",
+                children: [
+                  { id: "pow-1", label: "2 Live Deployed Full-Stack Projects with URLs" },
+                  { id: "pow-2", label: "Merged GitHub PRs in Open Source Repos" },
+                  { id: "pow-3", label: "45-Second Loom Architecture Video Demos" },
+                ],
+              },
+              {
+                id: "verbal-defense",
+                label: "Recruiter Verbal Scripts",
+                icon: "🗣️",
+                color: "amber",
+                badge: "Interview Script",
+                description: "Calibrated verbal psychology answers that turn past backlogs into stories of resilience.",
+                children: [
+                  { id: "vb-1", label: "Acknowledge Grade Without Making Excuses" },
+                  { id: "vb-2", label: "Pivot Directly to 150+ Solved LeetCode Problems" },
+                  { id: "vb-3", label: "Highlight Enterprise Framework Experience" },
+                ],
+              },
+              {
+                id: "resume-hacks",
+                label: "Resume Restructuring Hacks",
+                icon: "📄",
+                color: "primary",
+                badge: "ATS Strategy",
+                description: "Strategic resume formatting that shifts recruiter attention immediately to code skills.",
+                children: [
+                  { id: "rh-1", label: "Move Education Section to the Bottom Page" },
+                  { id: "rh-2", label: "Lead with Technical Skills & Project URLs" },
+                  { id: "rh-3", label: "Omit GPA if under 7.0 (Focus on Degree Name)" },
+                ],
+              },
+              {
+                id: "zero-gpa-channels",
+                label: "Zero-GPA Filter Channels",
+                icon: "🚀",
+                color: "cyan",
+                badge: "Hiring Routes",
+                description: "High-growth tech hiring channels that evaluate candidates 100% on technical skill.",
+                children: [
+                  { id: "zg-1", label: "YC Startup Directory (WorkAtAStartup)" },
+                  { id: "zg-2", label: "Direct Founder Cold Inbound on LinkedIn / X" },
+                  { id: "zg-3", label: "Open-Source Bounties & Remote Contracts" },
+                ],
+              },
+            ]}
+          />
+
           {/* Verbal Defense Scripts */}
           <section className="space-y-4">
             <h2 className="font-display text-lg font-bold text-foreground flex items-center gap-2">

@@ -22,6 +22,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { InteractiveMindMap } from "@/components/mind-map";
 import { Progress } from "@/components/ui/progress";
 import { cn } from "@/lib/utils";
 
@@ -117,6 +118,67 @@ function InternshipMatcherPage() {
 
       {result ? (
         <div className="space-y-6">
+          {/* Visual Student Internship Outreach Mind Map */}
+          <InteractiveMindMap
+            rootTitle="Student Internship Strategy & Conversion Mind Map"
+            rootSubtitle="A comprehensive breakdown of Big Tech formal pathways, fast-track startup outreach, open-source fellowships, and cold email conversion mechanics."
+            rootBadge="Internship Mind Map"
+            nodes={[
+              {
+                id: "big-tech",
+                label: "Tier 1 Big Tech Programs",
+                icon: "🏢",
+                color: "primary",
+                badge: "Formal Season",
+                description: "Structured university hiring pipelines with strict online assessment deadlines.",
+                children: [
+                  { id: "bt-1", label: "Google STEP & Microsoft Explore (Year 1-2)" },
+                  { id: "bt-2", label: "Amazon Summer SDE Intern (Blind 75 OA focus)" },
+                  { id: "bt-3", label: "Apply in August - October for next summer" },
+                ],
+              },
+              {
+                id: "high-growth",
+                label: "YC & VC-Backed Startups",
+                icon: "🚀",
+                color: "emerald",
+                badge: "Fast Track",
+                description: "Direct engineering hiring without algorithmic OA filters; focuses 100% on shipped code.",
+                children: [
+                  { id: "st-1", label: "WorkAtAStartup / AngelList Job Board" },
+                  { id: "st-2", label: "Founder / CTO Direct Inbound on Twitter & LinkedIn" },
+                  { id: "st-3", label: "Attach Live Deployed Project Links" },
+                ],
+              },
+              {
+                id: "fellowships",
+                label: "Open Source Fellowships",
+                icon: "🌍",
+                color: "cyan",
+                badge: "Global Stipend",
+                description: "Prestigious global stipends for contributing to open-source foundation repositories.",
+                children: [
+                  { id: "fs-1", label: "Google Summer of Code (GSoC) - $3,000+ Stipend" },
+                  { id: "fs-2", label: "MLH Fellowship & LFX Mentorship" },
+                  { id: "fs-3", label: "Proposal Drafting in February - March" },
+                ],
+              },
+              {
+                id: "outreach-rules",
+                label: "Cold Outreach Conversion",
+                icon: "📨",
+                color: "amber",
+                badge: "Inbound Engine",
+                description: "High-response outreach habits that secure interview callbacks in 48 hours.",
+                children: [
+                  { id: "or-1", label: "Keep cold emails under 100 words" },
+                  { id: "or-2", label: "Mention 1 specific company feature you tested" },
+                  { id: "or-3", label: "Follow up once after 4 business days" },
+                ],
+              },
+            ]}
+          />
+
           {/* Tier Matches Grid */}
           <section className="space-y-3">
             <h2 className="font-display text-lg font-bold text-foreground flex items-center gap-2">

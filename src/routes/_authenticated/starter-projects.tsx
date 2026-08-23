@@ -25,6 +25,7 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { InteractiveMindMap } from "@/components/mind-map";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/_authenticated/starter-projects")({
@@ -115,6 +116,67 @@ function StarterProjectsPage() {
 
       {result ? (
         <div className="space-y-8">
+          {/* Visual Full-Stack Architecture Mind Map */}
+          <InteractiveMindMap
+            rootTitle="Full-Stack Production System Architecture Mind Map"
+            rootSubtitle="Understand how a real software engineer connects frontend clients, backend API routing, high-speed caching, relational databases, and cloud deployments."
+            rootBadge="Architecture Mind Map"
+            nodes={[
+              {
+                id: "client-layer",
+                label: "Client & UI Layer",
+                icon: "🎨",
+                color: "primary",
+                badge: "Frontend",
+                description: "User interfaces built with modern reactive web frameworks and state management.",
+                children: [
+                  { id: "cl-1", label: "React / Vite with Tailwind CSS" },
+                  { id: "cl-2", label: "Form Validation & Async Fetch Hooks" },
+                  { id: "cl-3", label: "Responsive Layout & Dark Mode" },
+                ],
+              },
+              {
+                id: "api-layer",
+                label: "Backend & Business Logic Layer",
+                icon: "⚡",
+                color: "emerald",
+                badge: "API Gateway",
+                description: "High-performance REST / GraphQL controllers handling authentication and request validation.",
+                children: [
+                  { id: "ap-1", label: "Node.js Express / Python FastAPI" },
+                  { id: "ap-2", label: "CORS & Environment Secrets Config" },
+                  { id: "ap-3", label: "JSON Serialization & Status Codes" },
+                ],
+              },
+              {
+                id: "cache-db-layer",
+                label: "Cache & Database Layer",
+                icon: "🗄️",
+                color: "cyan",
+                badge: "Data Tier",
+                description: "Sub-millisecond memory caching paired with ACID-compliant persistent relational tables.",
+                children: [
+                  { id: "cd-1", label: "PostgreSQL with Schema Indexes" },
+                  { id: "cd-2", label: "Upstash Redis Sub-Millisecond Cache" },
+                  { id: "cd-3", label: "Foreign Keys & Unique Constraints" },
+                ],
+              },
+              {
+                id: "deploy-layer",
+                label: "1-Click Cloud Deployment Layer",
+                icon: "☁️",
+                color: "amber",
+                badge: "DevOps Tier",
+                description: "Zero-cost continuous deployment linking GitHub repositories directly to live production URLs.",
+                children: [
+                  { id: "dp-1", label: "Render (Backend Web Services)" },
+                  { id: "dp-2", label: "Vercel / Netlify (Frontend SSR / SPA)" },
+                  { id: "dp-3", label: "45-Second Video Walkthrough Demo" },
+                ],
+              },
+            ]}
+          />
+
           {/* Zero to Hero Golden Rules */}
           <Card className="surface-panel p-5 border-2 border-primary/30 bg-primary/5">
             <h2 className="text-base font-bold text-foreground flex items-center gap-2 mb-3">
