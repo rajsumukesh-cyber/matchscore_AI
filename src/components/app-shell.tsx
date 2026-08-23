@@ -33,6 +33,9 @@ import {
   ShieldAlert,
   FolderKanban,
   HeartHandshake,
+  Trophy,
+  GitPullRequest,
+  BrainCircuit,
   LogOut,
   Menu,
   X,
@@ -76,6 +79,9 @@ const NAV_AI = [
   { to: "/cgpa-rebrander", label: "Low CGPA defense", icon: ShieldAlert },
   { to: "/starter-projects", label: "Starter projects", icon: FolderKanban },
   { to: "/interview-coach", label: "Interview anxiety coach", icon: HeartHandshake },
+  { to: "/hackathon-pitch", label: "Hackathon pitch kit", icon: Trophy },
+  { to: "/open-source", label: "Open source PR finder", icon: GitPullRequest },
+  { to: "/aptitude-coach", label: "Placement aptitude", icon: BrainCircuit },
 ] as const;
 
 const NAV_DATA = [

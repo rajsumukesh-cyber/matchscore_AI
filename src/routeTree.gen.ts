@@ -16,6 +16,7 @@ import { Route as AuthenticatedAcademicTranslatorRouteImport } from './routes/_a
 import { Route as AuthenticatedAccessDeniedRouteImport } from './routes/_authenticated/access-denied'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 import { Route as AuthenticatedAnalyzeRouteImport } from './routes/_authenticated/analyze'
+import { Route as AuthenticatedAptitudeCoachRouteImport } from './routes/_authenticated/aptitude-coach'
 import { Route as AuthenticatedBillingRouteImport } from './routes/_authenticated/billing'
 import { Route as AuthenticatedCareerTimelineRouteImport } from './routes/_authenticated/career-timeline'
 import { Route as AuthenticatedCgpaRebranderRouteImport } from './routes/_authenticated/cgpa-rebrander'
@@ -23,6 +24,7 @@ import { Route as AuthenticatedCompareRouteImport } from './routes/_authenticate
 import { Route as AuthenticatedCoverLetterRouteImport } from './routes/_authenticated/cover-letter'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedFreelanceCalculatorRouteImport } from './routes/_authenticated/freelance-calculator'
+import { Route as AuthenticatedHackathonPitchRouteImport } from './routes/_authenticated/hackathon-pitch'
 import { Route as AuthenticatedInternshipMatcherRouteImport } from './routes/_authenticated/internship-matcher'
 import { Route as AuthenticatedInterviewRouteImport } from './routes/_authenticated/interview'
 import { Route as AuthenticatedInterviewCoachRouteImport } from './routes/_authenticated/interview-coach'
@@ -30,6 +32,7 @@ import { Route as AuthenticatedJobsRouteImport } from './routes/_authenticated/j
 import { Route as AuthenticatedLinkedinOptimizerRouteImport } from './routes/_authenticated/linkedin-optimizer'
 import { Route as AuthenticatedOfferEvaluatorRouteImport } from './routes/_authenticated/offer-evaluator'
 import { Route as AuthenticatedOnboardingPlanRouteImport } from './routes/_authenticated/onboarding-plan'
+import { Route as AuthenticatedOpenSourceRouteImport } from './routes/_authenticated/open-source'
 import { Route as AuthenticatedPromotionCaseRouteImport } from './routes/_authenticated/promotion-case'
 import { Route as AuthenticatedRecommendationsRouteImport } from './routes/_authenticated/recommendations'
 import { Route as AuthenticatedResilienceRadarRouteImport } from './routes/_authenticated/resilience-radar'
@@ -87,6 +90,12 @@ const AuthenticatedAnalyzeRoute = AuthenticatedAnalyzeRouteImport.update({
   path: '/analyze',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedAptitudeCoachRoute =
+  AuthenticatedAptitudeCoachRouteImport.update({
+    id: '/aptitude-coach',
+    path: '/aptitude-coach',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedBillingRoute = AuthenticatedBillingRouteImport.update({
   id: '/billing',
   path: '/billing',
@@ -124,6 +133,12 @@ const AuthenticatedFreelanceCalculatorRoute =
   AuthenticatedFreelanceCalculatorRouteImport.update({
     id: '/freelance-calculator',
     path: '/freelance-calculator',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedHackathonPitchRoute =
+  AuthenticatedHackathonPitchRouteImport.update({
+    id: '/hackathon-pitch',
+    path: '/hackathon-pitch',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedInternshipMatcherRoute =
@@ -166,6 +181,11 @@ const AuthenticatedOnboardingPlanRoute =
     path: '/onboarding-plan',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedOpenSourceRoute = AuthenticatedOpenSourceRouteImport.update({
+  id: '/open-source',
+  path: '/open-source',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedPromotionCaseRoute =
   AuthenticatedPromotionCaseRouteImport.update({
     id: '/promotion-case',
@@ -286,6 +306,7 @@ export interface FileRoutesByFullPath {
   '/access-denied': typeof AuthenticatedAccessDeniedRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/analyze': typeof AuthenticatedAnalyzeRoute
+  '/aptitude-coach': typeof AuthenticatedAptitudeCoachRoute
   '/billing': typeof AuthenticatedBillingRoute
   '/career-timeline': typeof AuthenticatedCareerTimelineRoute
   '/cgpa-rebrander': typeof AuthenticatedCgpaRebranderRoute
@@ -293,6 +314,7 @@ export interface FileRoutesByFullPath {
   '/cover-letter': typeof AuthenticatedCoverLetterRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/freelance-calculator': typeof AuthenticatedFreelanceCalculatorRoute
+  '/hackathon-pitch': typeof AuthenticatedHackathonPitchRoute
   '/internship-matcher': typeof AuthenticatedInternshipMatcherRoute
   '/interview': typeof AuthenticatedInterviewRoute
   '/interview-coach': typeof AuthenticatedInterviewCoachRoute
@@ -300,6 +322,7 @@ export interface FileRoutesByFullPath {
   '/linkedin-optimizer': typeof AuthenticatedLinkedinOptimizerRoute
   '/offer-evaluator': typeof AuthenticatedOfferEvaluatorRoute
   '/onboarding-plan': typeof AuthenticatedOnboardingPlanRoute
+  '/open-source': typeof AuthenticatedOpenSourceRoute
   '/promotion-case': typeof AuthenticatedPromotionCaseRoute
   '/recommendations': typeof AuthenticatedRecommendationsRoute
   '/resilience-radar': typeof AuthenticatedResilienceRadarRoute
@@ -328,6 +351,7 @@ export interface FileRoutesByTo {
   '/access-denied': typeof AuthenticatedAccessDeniedRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/analyze': typeof AuthenticatedAnalyzeRoute
+  '/aptitude-coach': typeof AuthenticatedAptitudeCoachRoute
   '/billing': typeof AuthenticatedBillingRoute
   '/career-timeline': typeof AuthenticatedCareerTimelineRoute
   '/cgpa-rebrander': typeof AuthenticatedCgpaRebranderRoute
@@ -335,6 +359,7 @@ export interface FileRoutesByTo {
   '/cover-letter': typeof AuthenticatedCoverLetterRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/freelance-calculator': typeof AuthenticatedFreelanceCalculatorRoute
+  '/hackathon-pitch': typeof AuthenticatedHackathonPitchRoute
   '/internship-matcher': typeof AuthenticatedInternshipMatcherRoute
   '/interview': typeof AuthenticatedInterviewRoute
   '/interview-coach': typeof AuthenticatedInterviewCoachRoute
@@ -342,6 +367,7 @@ export interface FileRoutesByTo {
   '/linkedin-optimizer': typeof AuthenticatedLinkedinOptimizerRoute
   '/offer-evaluator': typeof AuthenticatedOfferEvaluatorRoute
   '/onboarding-plan': typeof AuthenticatedOnboardingPlanRoute
+  '/open-source': typeof AuthenticatedOpenSourceRoute
   '/promotion-case': typeof AuthenticatedPromotionCaseRoute
   '/recommendations': typeof AuthenticatedRecommendationsRoute
   '/resilience-radar': typeof AuthenticatedResilienceRadarRoute
@@ -372,6 +398,7 @@ export interface FileRoutesById {
   '/_authenticated/access-denied': typeof AuthenticatedAccessDeniedRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
   '/_authenticated/analyze': typeof AuthenticatedAnalyzeRoute
+  '/_authenticated/aptitude-coach': typeof AuthenticatedAptitudeCoachRoute
   '/_authenticated/billing': typeof AuthenticatedBillingRoute
   '/_authenticated/career-timeline': typeof AuthenticatedCareerTimelineRoute
   '/_authenticated/cgpa-rebrander': typeof AuthenticatedCgpaRebranderRoute
@@ -379,6 +406,7 @@ export interface FileRoutesById {
   '/_authenticated/cover-letter': typeof AuthenticatedCoverLetterRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/_authenticated/freelance-calculator': typeof AuthenticatedFreelanceCalculatorRoute
+  '/_authenticated/hackathon-pitch': typeof AuthenticatedHackathonPitchRoute
   '/_authenticated/internship-matcher': typeof AuthenticatedInternshipMatcherRoute
   '/_authenticated/interview': typeof AuthenticatedInterviewRoute
   '/_authenticated/interview-coach': typeof AuthenticatedInterviewCoachRoute
@@ -386,6 +414,7 @@ export interface FileRoutesById {
   '/_authenticated/linkedin-optimizer': typeof AuthenticatedLinkedinOptimizerRoute
   '/_authenticated/offer-evaluator': typeof AuthenticatedOfferEvaluatorRoute
   '/_authenticated/onboarding-plan': typeof AuthenticatedOnboardingPlanRoute
+  '/_authenticated/open-source': typeof AuthenticatedOpenSourceRoute
   '/_authenticated/promotion-case': typeof AuthenticatedPromotionCaseRoute
   '/_authenticated/recommendations': typeof AuthenticatedRecommendationsRoute
   '/_authenticated/resilience-radar': typeof AuthenticatedResilienceRadarRoute
@@ -416,6 +445,7 @@ export interface FileRouteTypes {
     | '/access-denied'
     | '/admin'
     | '/analyze'
+    | '/aptitude-coach'
     | '/billing'
     | '/career-timeline'
     | '/cgpa-rebrander'
@@ -423,6 +453,7 @@ export interface FileRouteTypes {
     | '/cover-letter'
     | '/dashboard'
     | '/freelance-calculator'
+    | '/hackathon-pitch'
     | '/internship-matcher'
     | '/interview'
     | '/interview-coach'
@@ -430,6 +461,7 @@ export interface FileRouteTypes {
     | '/linkedin-optimizer'
     | '/offer-evaluator'
     | '/onboarding-plan'
+    | '/open-source'
     | '/promotion-case'
     | '/recommendations'
     | '/resilience-radar'
@@ -458,6 +490,7 @@ export interface FileRouteTypes {
     | '/access-denied'
     | '/admin'
     | '/analyze'
+    | '/aptitude-coach'
     | '/billing'
     | '/career-timeline'
     | '/cgpa-rebrander'
@@ -465,6 +498,7 @@ export interface FileRouteTypes {
     | '/cover-letter'
     | '/dashboard'
     | '/freelance-calculator'
+    | '/hackathon-pitch'
     | '/internship-matcher'
     | '/interview'
     | '/interview-coach'
@@ -472,6 +506,7 @@ export interface FileRouteTypes {
     | '/linkedin-optimizer'
     | '/offer-evaluator'
     | '/onboarding-plan'
+    | '/open-source'
     | '/promotion-case'
     | '/recommendations'
     | '/resilience-radar'
@@ -501,6 +536,7 @@ export interface FileRouteTypes {
     | '/_authenticated/access-denied'
     | '/_authenticated/admin'
     | '/_authenticated/analyze'
+    | '/_authenticated/aptitude-coach'
     | '/_authenticated/billing'
     | '/_authenticated/career-timeline'
     | '/_authenticated/cgpa-rebrander'
@@ -508,6 +544,7 @@ export interface FileRouteTypes {
     | '/_authenticated/cover-letter'
     | '/_authenticated/dashboard'
     | '/_authenticated/freelance-calculator'
+    | '/_authenticated/hackathon-pitch'
     | '/_authenticated/internship-matcher'
     | '/_authenticated/interview'
     | '/_authenticated/interview-coach'
@@ -515,6 +552,7 @@ export interface FileRouteTypes {
     | '/_authenticated/linkedin-optimizer'
     | '/_authenticated/offer-evaluator'
     | '/_authenticated/onboarding-plan'
+    | '/_authenticated/open-source'
     | '/_authenticated/promotion-case'
     | '/_authenticated/recommendations'
     | '/_authenticated/resilience-radar'
@@ -595,6 +633,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAnalyzeRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/aptitude-coach': {
+      id: '/_authenticated/aptitude-coach'
+      path: '/aptitude-coach'
+      fullPath: '/aptitude-coach'
+      preLoaderRoute: typeof AuthenticatedAptitudeCoachRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/billing': {
       id: '/_authenticated/billing'
       path: '/billing'
@@ -644,6 +689,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedFreelanceCalculatorRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/hackathon-pitch': {
+      id: '/_authenticated/hackathon-pitch'
+      path: '/hackathon-pitch'
+      fullPath: '/hackathon-pitch'
+      preLoaderRoute: typeof AuthenticatedHackathonPitchRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/internship-matcher': {
       id: '/_authenticated/internship-matcher'
       path: '/internship-matcher'
@@ -691,6 +743,13 @@ declare module '@tanstack/react-router' {
       path: '/onboarding-plan'
       fullPath: '/onboarding-plan'
       preLoaderRoute: typeof AuthenticatedOnboardingPlanRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/open-source': {
+      id: '/_authenticated/open-source'
+      path: '/open-source'
+      fullPath: '/open-source'
+      preLoaderRoute: typeof AuthenticatedOpenSourceRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/promotion-case': {
@@ -841,6 +900,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedAccessDeniedRoute: typeof AuthenticatedAccessDeniedRoute
   AuthenticatedAdminRoute: typeof AuthenticatedAdminRoute
   AuthenticatedAnalyzeRoute: typeof AuthenticatedAnalyzeRoute
+  AuthenticatedAptitudeCoachRoute: typeof AuthenticatedAptitudeCoachRoute
   AuthenticatedBillingRoute: typeof AuthenticatedBillingRoute
   AuthenticatedCareerTimelineRoute: typeof AuthenticatedCareerTimelineRoute
   AuthenticatedCgpaRebranderRoute: typeof AuthenticatedCgpaRebranderRoute
@@ -848,6 +908,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedCoverLetterRoute: typeof AuthenticatedCoverLetterRoute
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
   AuthenticatedFreelanceCalculatorRoute: typeof AuthenticatedFreelanceCalculatorRoute
+  AuthenticatedHackathonPitchRoute: typeof AuthenticatedHackathonPitchRoute
   AuthenticatedInternshipMatcherRoute: typeof AuthenticatedInternshipMatcherRoute
   AuthenticatedInterviewRoute: typeof AuthenticatedInterviewRoute
   AuthenticatedInterviewCoachRoute: typeof AuthenticatedInterviewCoachRoute
@@ -855,6 +916,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedLinkedinOptimizerRoute: typeof AuthenticatedLinkedinOptimizerRoute
   AuthenticatedOfferEvaluatorRoute: typeof AuthenticatedOfferEvaluatorRoute
   AuthenticatedOnboardingPlanRoute: typeof AuthenticatedOnboardingPlanRoute
+  AuthenticatedOpenSourceRoute: typeof AuthenticatedOpenSourceRoute
   AuthenticatedPromotionCaseRoute: typeof AuthenticatedPromotionCaseRoute
   AuthenticatedRecommendationsRoute: typeof AuthenticatedRecommendationsRoute
   AuthenticatedResilienceRadarRoute: typeof AuthenticatedResilienceRadarRoute
@@ -881,6 +943,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedAccessDeniedRoute: AuthenticatedAccessDeniedRoute,
   AuthenticatedAdminRoute: AuthenticatedAdminRoute,
   AuthenticatedAnalyzeRoute: AuthenticatedAnalyzeRoute,
+  AuthenticatedAptitudeCoachRoute: AuthenticatedAptitudeCoachRoute,
   AuthenticatedBillingRoute: AuthenticatedBillingRoute,
   AuthenticatedCareerTimelineRoute: AuthenticatedCareerTimelineRoute,
   AuthenticatedCgpaRebranderRoute: AuthenticatedCgpaRebranderRoute,
@@ -888,6 +951,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedCoverLetterRoute: AuthenticatedCoverLetterRoute,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
   AuthenticatedFreelanceCalculatorRoute: AuthenticatedFreelanceCalculatorRoute,
+  AuthenticatedHackathonPitchRoute: AuthenticatedHackathonPitchRoute,
   AuthenticatedInternshipMatcherRoute: AuthenticatedInternshipMatcherRoute,
   AuthenticatedInterviewRoute: AuthenticatedInterviewRoute,
   AuthenticatedInterviewCoachRoute: AuthenticatedInterviewCoachRoute,
@@ -895,6 +959,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedLinkedinOptimizerRoute: AuthenticatedLinkedinOptimizerRoute,
   AuthenticatedOfferEvaluatorRoute: AuthenticatedOfferEvaluatorRoute,
   AuthenticatedOnboardingPlanRoute: AuthenticatedOnboardingPlanRoute,
+  AuthenticatedOpenSourceRoute: AuthenticatedOpenSourceRoute,
   AuthenticatedPromotionCaseRoute: AuthenticatedPromotionCaseRoute,
   AuthenticatedRecommendationsRoute: AuthenticatedRecommendationsRoute,
   AuthenticatedResilienceRadarRoute: AuthenticatedResilienceRadarRoute,
