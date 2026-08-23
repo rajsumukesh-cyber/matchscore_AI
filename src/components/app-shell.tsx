@@ -30,6 +30,9 @@ import {
   Mic2,
   Compass,
   FileCode,
+  ShieldAlert,
+  FolderKanban,
+  HeartHandshake,
   LogOut,
   Menu,
   X,
@@ -70,6 +73,9 @@ const NAV_AI = [
   { to: "/internship-matcher", label: "Internship matcher", icon: Briefcase },
   { to: "/student-roadmap", label: "Student roadmap", icon: Compass },
   { to: "/academic-translator", label: "Academic translator", icon: FileCode },
+  { to: "/cgpa-rebrander", label: "Low CGPA defense", icon: ShieldAlert },
+  { to: "/starter-projects", label: "Starter projects", icon: FolderKanban },
+  { to: "/interview-coach", label: "Interview anxiety coach", icon: HeartHandshake },
 ] as const;
 
 const NAV_DATA = [

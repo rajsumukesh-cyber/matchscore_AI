@@ -27,6 +27,9 @@ import {
   Mic2,
   Compass,
   FileCode,
+  ShieldAlert,
+  FolderKanban,
+  HeartHandshake,
   ArrowRight,
   TrendingUp,
   Users,
@@ -269,6 +272,30 @@ const AI_TOOLS = [
     color: "text-emerald-500",
     bg: "bg-emerald-500/10",
   },
+  {
+    to: "/cgpa-rebrander",
+    icon: ShieldAlert,
+    title: "Low CGPA Defense",
+    description: "Pivot resume to proof-of-work & prepare tough recruiter interview scripts.",
+    color: "text-amber-500",
+    bg: "bg-amber-500/10",
+  },
+  {
+    to: "/starter-projects",
+    icon: FolderKanban,
+    title: "48-Hr Starter Projects",
+    description: "Build full-stack portfolio apps over a weekend with free hosting.",
+    color: "text-emerald-500",
+    bg: "bg-emerald-500/10",
+  },
+  {
+    to: "/interview-coach",
+    icon: HeartHandshake,
+    title: "Interview Panic Coach",
+    description: "Master 4-step verbal framework and emergency scripts when stuck.",
+    color: "text-rose-500",
+    bg: "bg-rose-500/10",
+  },
 ];
 
 function DashboardPage() {
@@ -337,7 +364,7 @@ function DashboardPage() {
         <div className="flex items-center gap-2">
           <h2 className="text-base font-semibold text-foreground">AI Career Intelligence Tools</h2>
           <Badge variant="outline" className="text-[10px] border-primary/20 text-primary bg-primary/5">
-            24 modules
+            27 modules
           </Badge>
         </div>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">

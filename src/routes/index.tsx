@@ -5,6 +5,7 @@ import {
   Coins,
   FileSearch,
   ShieldCheck,
+  ShieldAlert,
   Sparkles,
   Zap,
   Mic,
@@ -29,6 +30,8 @@ import {
   Compass,
   FileCode,
   Briefcase,
+  FolderKanban,
+  HeartHandshake,
   ArrowRight,
   CheckCircle2,
   Star,
@@ -48,13 +51,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Score any resume against any job description with explainable AI. 24-in-1 career & student intelligence suite with internship matcher, semester roadmaps, academic translator, mock interviews, and ATS builder.",
+          "Score any resume against any job description with explainable AI. 27-in-1 career & student intelligence suite with low CGPA defense, 48-hour starter projects, interview panic coach, internship matcher, and ATS builder.",
       },
       { property: "og:title", content: "MatchScore AI Resume to Role Match Scorer" },
       {
         property: "og:description",
         content:
-          "Explainable resume-to-role matching with 24 AI-powered career and student intelligence tools.",
+          "Explainable resume-to-role matching with 27 AI-powered career and student intelligence tools.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -184,10 +187,25 @@ const FEATURES = [
     title: "AI Academic to Industry Resume Translator",
     body: "Convert college coursework, lab assignments, and student projects into enterprise metric statements with architecture keywords.",
   },
+  {
+    icon: ShieldAlert,
+    title: "AI Low CGPA, Backlog & Non-CS Rebrander",
+    body: "Overcome lower grades and non-CS backgrounds with proof-of-work rebrand strategies and recruiter interview scripts.",
+  },
+  {
+    icon: FolderKanban,
+    title: "AI 48-Hour Zero Experience Starter Projects",
+    body: "Build recruiter-approved full-stack portfolio apps over a single weekend with architectures and free hosting steps.",
+  },
+  {
+    icon: HeartHandshake,
+    title: "AI Live Interview Anxiety & Hint Coach",
+    body: "Master the 4-step panic-free coding interview framework and emergency verbal lifelines when stuck.",
+  },
 ];
 
 const STATS = [
-  { value: "24", label: "AI Modules", suffix: "" },
+  { value: "27", label: "AI Modules", suffix: "" },
   { value: "50", label: "Scoring Dimensions", suffix: "+" },
   { value: "10K", label: "Resumes Analysed", suffix: "+" },
   { value: "97", label: "ATS Pass Rate", suffix: "%" },
@@ -232,7 +250,7 @@ function Landing() {
             <div className="animate-fade-in-up">
               <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/8 px-4 py-1.5 text-xs font-semibold text-primary shadow-sm">
                 <Sparkles className="size-3.5" />
-                24-in-1 AI Career & Student Intelligence Suite
+                27-in-1 AI Career & Student Intelligence Suite
               </span>
             </div>
 
